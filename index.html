@@ -3,304 +3,755 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YedekParcaJet | Kurumsal Yedek Parça Çözümleri</title>
+    <title>YedekParcaJet.com | Profesyonel Oto Yedek Parça Çözümleri</title>
     
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <meta name="description" content="YedekParcaJet: Renault, Fiat, VW, Togg ve 30+ marka için profesyonel yedek parça tedarik merkezi. Ankara Yenimahalle.">
+    <meta name="author" content="YedekParcaJet">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
     <style>
+        /* ================================================================
+           1. CSS TASARIM SİSTEMİ (DESIGN SYSTEM)
+           ================================================================
+        */
         :root {
-            --primary: #0047AB; /* Derin Kurumsal Mavi */
-            --accent: #FF6B00;  /* Enerjik Turuncu */
-            --dark: #0F172A;    /* Gece Mavisi/Siyah */
-            --light: #F8FAFC;
-            --glass: rgba(255, 255, 255, 0.8);
+            --primary-color: #0052cc;      /* Kurumsal Mavi */
+            --secondary-color: #ff6b00;    /* Jet Turuncu */
+            --dark-bg: #0a0f18;            /* Premium Karanlık */
+            --light-bg: #f4f7fa;           /* Yumuşak Gri */
+            --white: #ffffff;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --glass-bg: rgba(255, 255, 255, 0.85);
+            --border-radius: 16px;
+            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; }
-        body { background-color: #fff; color: var(--dark); overflow-x: hidden; scroll-behavior: smooth; }
+        /* Temel Reset */
+        * { margin: 0; padding: 0; box-sizing: border-box; outline: none; }
+        body { 
+            font-family: 'Outfit', sans-serif; 
+            background: var(--light-bg); 
+            color: var(--text-main); 
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
 
-        /* --- PRESTİJ HEADER --- */
+        h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; font-weight: 700; }
+        a { text-decoration: none; color: inherit; transition: var(--transition); }
+        ul { list-style: none; }
+        img { max-width: 100%; height: auto; }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: var(--primary-color); border-radius: 10px; }
+
+        /* ================================================================
+           2. HEADER & NAVIGASYON
+           ================================================================
+        */
         header {
-            position: fixed; width: 100%; top: 0; z-index: 1000;
-            background: var(--glass); backdrop-filter: blur(15px);
-            border-bottom: 1px solid rgba(0,0,0,0.05);
-            transition: 0.4s ease;
+            background: var(--white);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
         }
 
-        .nav-container {
-            max-width: 1400px; margin: 0 auto; padding: 15px 25px;
-            display: flex; justify-content: space-between; align-items: center;
+        .top-bar {
+            background: var(--dark-bg);
+            color: var(--white);
+            padding: 8px 0;
+            font-size: 13px;
+            text-align: center;
+            font-weight: 400;
         }
 
-        .logo img { height: 60px; object-fit: contain; }
-
-        .nav-tools { display: flex; align-items: center; gap: 25px; }
-        
-        .whatsapp-link {
-            background: var(--dark); color: white; padding: 12px 24px;
-            border-radius: 50px; text-decoration: none; font-weight: 600;
-            display: flex; align-items: center; gap: 10px; transition: 0.3s;
+        .navbar {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 15px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
-        .whatsapp-link:hover { background: var(--accent); transform: translateY(-2px); }
 
-        /* --- HERO: VİZYON ALANI --- */
+        .logo-container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .logo img {
+            height: 75px;
+            transition: var(--transition);
+        }
+
+        .logo:hover img { transform: scale(1.05); }
+
+        /* WhatsApp Butonu (Logo Altı Özel İstek) */
+        .whatsapp-header-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: #25D366;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 700;
+            margin-top: 5px;
+            animation: pulse-green 2s infinite;
+        }
+
+        @keyframes pulse-green {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { transform: scale(1.02); box-shadow: 0 0 0 10px rgba(37, 211, 102, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-weight: 600;
+            color: var(--text-main);
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--secondary-color);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after { width: 100%; }
+
+        .search-container {
+            position: relative;
+            width: 300px;
+        }
+
+        .search-container input {
+            width: 100%;
+            padding: 12px 20px 12px 45px;
+            border-radius: 50px;
+            border: 2px solid #eef2f6;
+            background: #f8fafc;
+            transition: var(--transition);
+        }
+
+        .search-container i {
+            position: absolute;
+            left: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+        }
+
+        /* ================================================================
+           3. HERO (GİRİŞ) BÖLÜMÜ
+           ================================================================
+        */
         .hero {
-            height: 90vh; background: var(--dark);
-            display: flex; align-items: center; position: relative; overflow: hidden;
-            color: white; padding: 0 5%; margin-bottom: 50px;
+            position: relative;
+            background: var(--dark-bg);
+            padding: 100px 5%;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            color: var(--white);
         }
 
-        .hero-content { position: relative; z-index: 2; max-width: 800px; }
-        .hero-content h1 { font-size: clamp(2.5rem, 5vw, 4.5rem); font-weight: 800; line-height: 1.1; margin-bottom: 20px; }
-        .hero-content span { color: var(--accent); }
-        .hero-content p { font-size: 1.2rem; opacity: 0.8; margin-bottom: 40px; }
-
-        .hero-image {
-            position: absolute; right: -5%; top: 50%; transform: translateY(-50%);
-            width: 50%; height: 80%; opacity: 0.3; filter: grayscale(1);
-            background: url('https://images.unsplash.com/photo-1597404294360-feeeda04612e?q=80&w=2070&auto=format&fit=crop') center/cover;
-            border-radius: 40px;
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: url('https://images.unsplash.com/photo-1590674899484-d306540c689d?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.2;
         }
 
-        /* --- MARKA SEÇİCİ (YATAY SCROLL) --- */
-        .brand-section { padding: 80px 0; background: var(--light); }
-        .section-header { text-align: center; margin-bottom: 50px; }
-        .section-header h2 { font-size: 2.5rem; color: var(--dark); font-weight: 800; }
-
-        .brand-wrapper {
-            display: flex; gap: 20px; overflow-x: auto; padding: 20px 5%;
-            scrollbar-width: none;
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
         }
-        .brand-wrapper::-webkit-scrollbar { display: none; }
 
-        .brand-pill {
-            flex: 0 0 auto; background: white; padding: 15px 40px;
-            border-radius: 15px; border: 1px solid #e2e8f0;
-            font-weight: 700; cursor: pointer; transition: 0.3s;
-            text-transform: uppercase; letter-spacing: 1px;
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            line-height: 1.1;
+            margin-bottom: 25px;
         }
-        .brand-pill.active { background: var(--primary); color: white; border-color: var(--primary); box-shadow: 0 10px 20px rgba(0,71,171,0.2); }
-        .brand-pill:hover:not(.active) { border-color: var(--accent); color: var(--accent); }
 
-        /* --- ÜRÜN GALERİSİ --- */
-        .catalog { max-width: 1400px; margin: 0 auto 100px; padding: 0 25px; }
-        
+        .hero h1 span { color: var(--secondary-color); }
+
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.8;
+            margin-bottom: 40px;
+            max-width: 600px;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .stat-item h3 { font-size: 2rem; color: var(--secondary-color); }
+        .stat-item p { font-size: 0.9rem; margin-bottom: 0; }
+
+        /* ================================================================
+           4. MARKA SEÇİM ALANI
+           ================================================================
+        */
+        .brand-section {
+            padding: 100px 0;
+            background: var(--white);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        .section-title h2 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+        }
+
+        .section-title div {
+            width: 80px; height: 4px; background: var(--secondary-color); margin: 0 auto;
+        }
+
+        .brand-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 25px;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 25px;
+        }
+
+        .brand-card {
+            background: var(--white);
+            border: 2px solid #f1f5f9;
+            border-radius: var(--border-radius);
+            padding: 30px 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .brand-card:hover {
+            border-color: var(--primary-color);
+            transform: translateY(-10px);
+            box-shadow: var(--shadow);
+        }
+
+        .brand-card i {
+            font-size: 45px;
+            color: #334155;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .brand-card span {
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-main);
+        }
+
+        /* ================================================================
+           5. DİNAMİK KATALOG SİSTEMİ
+           ================================================================
+        */
+        .catalog-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 80px 25px;
+            display: none; /* Marka seçilince açılacak */
+        }
+
+        .filter-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 20px;
+        }
+
+        .back-btn {
+            background: var(--dark-bg);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
         .product-grid {
-            display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 30px; margin-top: 50px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
         }
 
         .product-card {
-            background: white; border-radius: 30px; overflow: hidden;
-            border: 1px solid #f1f5f9; transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            background: var(--white);
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+            border: 1px solid #f1f5f9;
+            transition: var(--transition);
+        }
+
+        .product-card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .product-image {
+            height: 250px;
+            background: #f8fafc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             position: relative;
         }
-        .product-card:hover { transform: translateY(-15px); box-shadow: 0 30px 60px rgba(0,0,0,0.1); }
 
-        .product-img {
-            height: 280px; background: #f8fafc; overflow: hidden;
+        .product-image i {
+            font-size: 100px;
+            color: #cbd5e1;
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 20px; right: 20px;
+            background: var(--primary-color);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: 800;
+        }
+
+        .product-info {
+            padding: 25px;
+        }
+
+        .product-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--dark-bg);
+        }
+
+        .product-info p {
+            color: var(--text-muted);
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .teklif-btn {
+            width: 100%;
+            background: var(--dark-bg);
+            color: white;
+            padding: 15px;
+            border-radius: 12px;
+            border: none;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: var(--transition);
+        }
+
+        .teklif-btn:hover {
+            background: var(--secondary-color);
+        }
+
+        /* ================================================================
+           6. BİLGİ KARTLARI (NEDEN BİZ?)
+           ================================================================
+        */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 1400px;
+            margin: 100px auto;
+            padding: 0 25px;
+        }
+
+        .info-card {
+            background: var(--dark-bg);
+            color: white;
+            padding: 50px;
+            border-radius: 30px;
+            transition: var(--transition);
+        }
+
+        .info-card i {
+            font-size: 50px;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+        }
+
+        /* ================================================================
+           7. FOOTER (KURUMSAL ALT BİLGİ)
+           ================================================================
+        */
+        footer {
+            background: #05080f;
+            color: rgba(255,255,255,0.7);
+            padding: 100px 5% 30px;
+            margin-top: 100px;
+        }
+
+        .footer-main {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 60px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-col h4 {
+            color: white;
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .footer-col h4::after {
+            content: '';
+            position: absolute;
+            bottom: -10px; left: 0;
+            width: 40px; height: 3px;
+            background: var(--secondary-color);
+        }
+
+        .contact-list li {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .contact-list i {
+            color: var(--secondary-color);
+            font-size: 20px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .social-links a {
+            width: 45px; height: 45px;
+            background: rgba(255,255,255,0.05);
             display: flex; align-items: center; justify-content: center;
+            border-radius: 50%;
+            font-size: 20px;
+            color: white;
         }
-        .product-img i { font-size: 100px; color: #cbd5e1; transition: 0.5s; }
-        .product-card:hover .product-img i { transform: scale(1.1) rotate(-5deg); color: var(--primary); }
 
-        .product-info { padding: 30px; }
-        .product-tag { font-size: 12px; font-weight: 800; color: var(--accent); text-transform: uppercase; margin-bottom: 10px; display: block; }
-        .product-title { font-size: 1.4rem; font-weight: 700; color: var(--dark); margin-bottom: 25px; }
-
-        .request-btn {
-            width: 100%; padding: 16px; background: #f1f5f9; color: var(--dark);
-            border: none; border-radius: 18px; font-weight: 700; cursor: pointer;
-            display: flex; align-items: center; justify-content: center; gap: 10px; transition: 0.3s;
+        .social-links a:hover {
+            background: var(--primary-color);
+            transform: scale(1.1);
         }
-        .product-card:hover .request-btn { background: var(--dark); color: white; }
 
-        /* --- FOOTER: KURUMSAL İMZA --- */
-        footer { background: var(--dark); color: white; padding: 100px 5% 40px; }
-        .footer-content {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 60px; max-width: 1400px; margin: 0 auto;
+        .footer-bottom {
+            margin-top: 80px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            text-align: center;
+            font-size: 14px;
         }
-        .footer-logo img { height: 50px; margin-bottom: 20px; filter: brightness(0) invert(1); }
-        .footer-social { display: flex; gap: 20px; margin-top: 30px; }
-        .footer-social a { 
-            width: 50px; height: 50px; background: rgba(255,255,255,0.05); 
-            display: flex; align-items: center; justify-content: center; 
-            border-radius: 50%; color: white; font-size: 20px; transition: 0.3s;
-        }
-        .footer-social a:hover { background: var(--accent); transform: rotate(360deg); }
 
-        /* MOBİL */
+        /* ================================================================
+           8. MOBİL UYUMLULUK (RESPONSIVE)
+           ================================================================
+        */
+        @media (max-width: 1024px) {
+            .navbar { flex-direction: column; gap: 20px; }
+            .search-container { width: 100%; }
+        }
+
         @media (max-width: 768px) {
-            .hero-content h1 { font-size: 2.5rem; }
-            .nav-tools { display: none; }
+            .hero h1 { font-size: 2.8rem; }
+            .brand-grid { grid-template-columns: repeat(2, 1fr); }
+            .hero-stats { flex-direction: column; gap: 20px; }
         }
+
     </style>
 </head>
 <body>
 
-    <header id="mainHeader">
-        <div class="nav-container">
-            <div class="logo">
-                <img src="yedek-parca-jet-com.jpg" alt="YedekParcaJet">
-            </div>
-            <div class="nav-tools">
-                <span style="font-weight: 600; color: var(--dark);"><i class="fas fa-phone-alt"></i> 0850 840 77 28</span>
-                <a href="https://wa.me/908508407728" class="whatsapp-link">
-                    <i class="fab fa-whatsapp"></i> WHATSAPP DESTEK
+    <div class="top-bar">
+        <i class="fas fa-shipping-fast"></i> Tüm Türkiye'ye Hızlı Kargo & Teknik Destek Hattı Açık!
+    </div>
+
+    <header>
+        <div class="navbar">
+            <div class="logo-container">
+                <a href="#" class="logo">
+                    <img src="yedek-parca-jet-com.jpg" alt="YedekParcaJet Logo">
                 </a>
+                <a href="https://wa.me/908508407728" class="whatsapp-header-btn">
+                    <i class="fab fa-whatsapp"></i> 0850 840 77 28
+                </a>
+            </div>
+
+            <nav class="nav-links">
+                <a href="#">Ana Sayfa</a>
+                <a href="#markalar">Markalar</a>
+                <a href="#kurumsal">Kurumsal</a>
+                <a href="#iletisim">İletişim</a>
+            </nav>
+
+            <div class="search-container">
+                <i class="fas fa-search"></i>
+                <input type="text" id="globalSearch" placeholder="Parça adı veya kod ara...">
             </div>
         </div>
     </header>
 
     <section class="hero">
-        <div class="hero-image"></div>
-        <div class="hero-content" data-aos="fade-up">
-            <h1>Aracınızın <span>Jet</span> Parçası Burada.</h1>
-            <p>Türkiye'nin en geniş marka ağıyla, orijinal ve garantili parçaları profesyonel hizmet anlayışıyla kapınıza getiriyoruz.</p>
-            <div style="display: flex; gap: 20px;">
-                <a href="#katalog" class="whatsapp-link" style="background: var(--accent); padding: 20px 40px;">KATALOĞU İNCELE</a>
+        <div class="hero-content" data-aos="fade-right">
+            <h1>Oto Yedek Parçada <span>Hız ve Güven</span> Bir Arada.</h1>
+            <p>Aradığınız tüm markaların orijinal ve muadil yedek parçaları, uzman kadromuz ve dev stok ağımızla emrinizde.</p>
+            
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <h3>35+</h3>
+                    <p>Marka Desteği</p>
+                </div>
+                <div class="stat-item">
+                    <h3>1M+</h3>
+                    <p>Yedek Parça</p>
+                </div>
+                <div class="stat-item">
+                    <h3>%100</h3>
+                    <p>Müşteri Memnuniyeti</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <section class="brand-section">
-        <div class="section-header" data-aos="fade-up">
-            <h2>MARKANI SEÇ</h2>
-            <p>Seçtiğin markaya özel yedek parçaları aşağıda görebilirsin.</p>
+    <section id="markalar" class="brand-section">
+        <div class="section-title" data-aos="fade-up">
+            <h2>ARAÇ MARKALARI</h2>
+            <p>Yedek parçasını aradığınız markayı seçerek kataloğu inceleyin.</p>
+            <div></div>
         </div>
-        <div class="brand-wrapper" id="brandList">
+
+        <div class="brand-grid" id="brandGrid">
             </div>
     </section>
 
-    <main class="catalog" id="katalog">
+    <section id="catalogSection" class="catalog-container">
+        <div class="filter-header">
+            <div class="back-btn" onclick="closeCatalog()">
+                <i class="fas fa-arrow-left"></i> Markalara Dön
+            </div>
+            <h2 id="catalogTitle" style="color: var(--primary-color);">... Yedek Parçaları</h2>
+        </div>
+
         <div class="product-grid" id="productGrid">
             </div>
-    </main>
+    </section>
 
-    <footer>
-        <div class="footer-content">
-            <div>
-                <div class="footer-logo"><img src="yedek-parca-jet-com.jpg" alt=""></div>
-                <p style="opacity: 0.6; line-height: 1.8;">Serhat, 1126. Cadde Ayyıldız Sanayi Sitesi No:14/A, 06200 Yenimahalle/Ankara</p>
-                <div class="footer-social">
-                    <a href="https://facebook.com/yedekparcajetcom"><i class="fab fa-facebook-f"></i></a>
+    <section id="kurumsal" class="info-grid">
+        <div class="info-card" data-aos="zoom-in">
+            <i class="fas fa-check-double"></i>
+            <h3>Orijinal Kalite</h3>
+            <p>Tüm parçalarımız kalite kontrol testlerinden geçmiş, uzun ömürlü ve garantili ürünlerdir.</p>
+        </div>
+        <div class="info-card" data-aos="zoom-in" data-aos-delay="100">
+            <i class="fas fa-microchip"></i>
+            <h3>Şase No Kontrolü</h3>
+            <p>Hatalı parça alımını engellemek için şase numaranızdan parçanın uyumluluğunu kontrol ediyoruz.</p>
+        </div>
+        <div class="info-card" data-aos="zoom-in" data-aos-delay="200">
+            <i class="fas fa-truck-loading"></i>
+            <h3>Jet Teslimat</h3>
+            <p>Verilen siparişler aynı gün kargoya teslim edilir, en kısa sürede kapınıza ulaştırılır.</p>
+        </div>
+    </section>
+
+    <footer id="iletisim">
+        <div class="footer-main">
+            <div class="footer-col">
+                <img src="yedek-parca-jet-com.jpg" alt="Logo" style="height: 60px; filter: brightness(0) invert(1); margin-bottom: 20px;">
+                <p>Ankara'nın kalbinde, tüm Türkiye'nin yedek parça ihtiyacını "Jet" hızıyla karşılıyoruz. Profesyonel çözümler için doğru adrestesiniz.</p>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/yedekparcajetcom"><i class="fab fa-facebook-f"></i></a>
                     <a href="https://instagram.com/yedekparcajetcom"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
-            <div>
-                <h3>Kurumsal</h3>
-                <ul style="list-style: none; margin-top: 20px; opacity: 0.6;">
-                    <li style="margin-bottom: 10px;">Hakkımızda</li>
-                    <li style="margin-bottom: 10px;">Hızlı Kargo</li>
-                    <li style="margin-bottom: 10px;">İade Şartları</li>
-                    <li style="margin-bottom: 10px;">Bize Ulaşın</li>
+
+            <div class="footer-col">
+                <h4>Hızlı Menü</h4>
+                <ul class="contact-list">
+                    <li><a href="#">Hakkımızda</a></li>
+                    <li><a href="#">Sıkça Sorulan Sorular</a></li>
+                    <li><a href="#">Kargo Politikası</a></li>
+                    <li><a href="#">İade ve İptal</a></li>
                 </ul>
             </div>
-            <div>
-                <h3>Jet İletişim</h3>
-                <h2 style="color: var(--accent); margin: 20px 0;">0850 840 77 28</h2>
-                <p style="opacity: 0.6;">Hafta içi: 09:00 - 19:00<br>Cumartesi: 09:00 - 15:00</p>
+
+            <div class="footer-col">
+                <h4>İletişim</h4>
+                <ul class="contact-list">
+                    <li>
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Serhat, 1126. Cadde Ayyıldız Sanayi Sitesi No:14/A, Yenimahalle/Ankara</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-phone"></i>
+                        <span>0850 840 77 28</span>
+                    </li>
+                    <li>
+                        <i class="fab fa-whatsapp"></i>
+                        <span>0850 840 77 28</span>
+                    </li>
+                </ul>
             </div>
         </div>
-        <p style="text-align: center; margin-top: 80px; opacity: 0.3; font-size: 13px;">&copy; 2026 YedekParcaJet.com - Tüm Hakları Saklıdır.</p>
+
+        <div class="footer-bottom">
+            &copy; 2026 YedekParcaJet.com | Tüm Hakları Saklıdır. Türkiye'nin En Profesyonel Yedek Parça Üssü.
+        </div>
     </footer>
 
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
-        AOS.init({ duration: 1000, once: true });
+        // Animasyonları Başlat
+        AOS.init();
 
-        // --- SENİN YÖNETECEĞİN ÜRÜN LİSTESİ ---
-        const URUN_LISTESI = [
-            { marka: "Renault", ad: "Ön Tampon Komple", kategori: "KAPORTA", ikon: "fa-car-side" },
-            { marka: "Renault", ad: "Far Grubu LED", kategori: "AYDINLATMA", ikon: "fa-lightbulb" },
-            { marka: "Volkswagen", ad: "Stop Lambası Sağ", kategori: "AYDINLATMA", ikon: "fa-lightbulb" },
-            { marka: "BMW", ad: "Ön Izgara (Böbrek)", kategori: "KAPORTA", ikon: "fa-border-all" },
-            { marka: "Fiat", ad: "Yan Kapı Sacı", kategori: "KAPORTA", ikon: "fa-door-open" },
-            { marka: "Togg", ad: "Arka Tampon", kategori: "KAPORTA", ikon: "fa-car-side" },
-            { marka: "Tesla", ad: "Cam Tavan Paneli", kategori: "DIŞ AKSAM", ikon: "fa-window-maximize" },
-            { marka: "Audi", ad: "Ön Çamurluk", kategori: "KAPORTA", ikon: "fa-car" },
-            { marka: "Mercedes", ad: "Ayna Komple", kategori: "DIŞ AKSAM", ikon: "fa-eye" },
-            { marka: "Honda", ad: "Kaput Grubu", kategori: "KAPORTA", ikon: "fa-car" }
-        ];
-
+        // DEV DATA: Araç Markaları
         const MARKALAR = [
-            "Hepsi", "Renault", "Toyota", "Honda", "Fiat", "Audi", "Volvo", "Volkswagen", "Togg", "Tesla", 
+            "Renault", "Toyota", "Honda", "Fiat", "Audi", "Volvo", "Volkswagen", "Togg", "Tesla", 
             "SsangYong", "Skoda", "Hyundai", "Kia", "Seat", "Opel", "Nissan", "Mitsubishi", 
             "Mercedes", "Mazda", "Jeep", "Iveco", "Isuzu", "Ford", "Dodge", "Daihatsu", 
             "Daewoo", "Dacia", "Citroen", "Chrysler", "Chevrolet", "Chery", "BMW", "Alfa Romeo", "Peugeot"
+        ].sort();
+
+        // DEV DATA: Ürün Şablonları (Gerçek sistemde bunlar API'den gelir)
+        const URUN_SABLONLARI = [
+            { ad: "Ön Tampon Komple", kat: "Kaporta", icon: "fa-car-side" },
+            { ad: "Far Grubu (Sağ/Sol)", kat: "Aydınlatma", icon: "fa-lightbulb" },
+            { ad: "Arka Stop Lambası", kat: "Aydınlatma", icon: "fa-lightbulb" },
+            { ad: "Yan Kapı Sacı", kat: "Kaporta", icon: "fa-door-open" },
+            { ad: "Ön Çamurluk", kat: "Kaporta", icon: "fa-car" },
+            { ad: "Radyatör Paneli", kat: "Soğutma", icon: "fa-fan" },
+            { ad: "Dikiz Aynası Elektrikli", kat: "Dış Aksam", icon: "fa-eye" },
+            { ad: "Ön Panjur / Izgara", kat: "Kaporta", icon: "fa-grip-lines" },
+            { ad: "Bagaj Kapağı", kat: "Kaporta", icon: "fa-truck-ramp-box" },
+            { ad: "Amortisör Takımı", kat: "Süspansiyon", icon: "fa-arrows-up-down" },
+            { ad: "Fren Disk & Balata", kat: "Fren Sistemi", icon: "fa-circle-stop" },
+            { ad: "Motor Kaputu", kat: "Kaporta", icon: "fa-car" }
         ];
 
-        let aktifMarka = "Hepsi";
+        const brandGrid = document.getElementById('brandGrid');
+        const catalogSection = document.getElementById('catalogSection');
+        const markalarSection = document.getElementById('markalar');
+        const productGrid = document.getElementById('productGrid');
+        const catalogTitle = document.getElementById('catalogTitle');
 
-        // Marka Butonlarını Oluştur
-        function markalariYazdir() {
-            const list = document.getElementById('brandList');
-            list.innerHTML = MARKALAR.map(m => `
-                <div class="brand-pill ${m === aktifMarka ? 'active' : ''}" onclick="markaSec('${m}')">${m}</div>
-            `).join('');
+        // Markaları Listele
+        function initBrands() {
+            MARKALAR.forEach((brand, index) => {
+                const div = document.createElement('div');
+                div.className = 'brand-card';
+                div.setAttribute('data-aos', 'fade-up');
+                div.setAttribute('data-aos-delay', (index % 5) * 50);
+                div.onclick = () => openCatalog(brand);
+                div.innerHTML = `
+                    <i class="fas fa-car-rear"></i>
+                    <span>${brand}</span>
+                `;
+                brandGrid.appendChild(div);
+            });
         }
 
-        // Ürünleri Filtreli Yazdir
-        function urunleriYazdir() {
-            const grid = document.getElementById('productGrid');
-            const filtrelenmis = aktifMarka === "Hepsi" 
-                ? URUN_LISTESI 
-                : URUN_LISTESI.filter(u => u.marka === aktifMarka);
+        // Kataloğu Aç
+        function openCatalog(brand) {
+            markalarSection.style.display = 'none';
+            catalogSection.style.display = 'block';
+            catalogTitle.innerText = brand + " Yedek Parça Kataloğu";
+            window.scrollTo({ top: 400, behavior: 'smooth' });
 
-            if(filtrelenmis.length === 0) {
-                grid.innerHTML = `<div style="grid-column: 1/-1; text-align: center; padding: 50px; opacity: 0.5;">
-                    <h3>Bu markaya ait ürün henüz eklenmedi.</h3>
-                    <p>Lütfen bizimle iletişime geçin, aradığınız parçayı bulalım.</p>
-                </div>`;
-                return;
-            }
-
-            grid.innerHTML = filtrelenmis.map(u => `
-                <div class="product-card" data-aos="zoom-in">
-                    <div class="product-img">
-                        <i class="fas ${u.ikon}"></i>
+            // Ürünleri Dinamik Oluştur
+            productGrid.innerHTML = '';
+            URUN_SABLONLARI.forEach((item, index) => {
+                const pDiv = document.createElement('div');
+                pDiv.className = 'product-card';
+                pDiv.setAttribute('data-aos', 'zoom-in');
+                pDiv.innerHTML = `
+                    <div class="product-image">
+                        <span class="product-badge">${brand} Uyumlu</span>
+                        <i class="fas ${item.icon}"></i>
                     </div>
                     <div class="product-info">
-                        <span class="product-tag">${u.kategori} | ${u.marka}</span>
-                        <h3 class="product-title">${u.ad}</h3>
-                        <button class="request-btn" onclick="teklifAl('${u.marka}', '${u.ad}')">
-                            <i class="fab fa-whatsapp"></i> STOK VE FİYAT SOR
+                        <h3>${brand} ${item.ad}</h3>
+                        <p>Kategori: <b>${item.kat}</b><br>Durum: Sıfır / Garantili</p>
+                        <button class="teklif-btn" onclick="sendWhatsApp('${brand}', '${item.ad}')">
+                            <i class="fab fa-whatsapp"></i> Fiyat Al & Stok Sor
                         </button>
                     </div>
-                </div>
-            `).join('');
+                `;
+                productGrid.appendChild(pDiv);
+            });
         }
 
-        function markaSec(m) {
-            aktifMarka = m;
-            markalariYazdir();
-            urunleriYazdir();
+        // Kataloğu Kapat
+        function closeCatalog() {
+            catalogSection.style.display = 'none';
+            markalarSection.style.display = 'block';
+            window.scrollTo({ top: 600, behavior: 'smooth' });
         }
 
-        function teklifAl(marka, urun) {
-            const tel = "908508407728";
-            const mesaj = encodeURIComponent(`Merhaba, YedekParcaJet sitenizden ulaşıyorum. ${marka} marka aracım için "${urun}" parçası hakkında bilgi alabilir miyim?`);
-            window.open(`https://wa.me/${tel}?text=${mesaj}`, '_blank');
+        // WhatsApp Yönlendirme
+        function sendWhatsApp(brand, part) {
+            const num = "908508407728";
+            const msg = `Merhaba YedekParcaJet! ${brand} aracım için ${part} parçası hakkında fiyat ve stok bilgisi alabilir miyim? Şase numaramı paylaşmaya hazırım.`;
+            window.open(`https://wa.me/${num}?text=${encodeURIComponent(msg)}`, '_blank');
         }
 
-        // İlk Çalıştırma
-        markalariYazdir();
-        urunleriYazdir();
-
-        // Header Scroll Efekti
-        window.onscroll = function() {
-            const header = document.getElementById('mainHeader');
-            if (window.pageYOffset > 50) {
-                header.style.padding = "5px 0";
-                header.style.background = "white";
-            } else {
-                header.style.padding = "15px 0";
-                header.style.background = "var(--glass)";
+        // Arama Fonksiyonu (Simülasyon)
+        document.getElementById('globalSearch').onkeyup = function() {
+            let val = this.value.toLowerCase();
+            if(val.length > 2) {
+                openCatalog("Aranan");
+                catalogTitle.innerText = `"${val}" İçin Sonuçlar`;
             }
-        };
+        }
+
+        // Uygulamayı Başlat
+        initBrands();
+
     </script>
 </body>
 </html>
