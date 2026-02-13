@@ -4,110 +4,196 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>Yedek Parça Jet - Ankara Merkezli Tüm Türkiye'ye Çıkma Parça</title>
-    <meta name="description" content="Ankara merkezli Yedek Parça Jet olarak Türkiye'nin 81 iline kargo ile çıkma yedek parça gönderiyoruz. Hyundai, Fiat, Toyota ve tüm markalar. Whatsapp: 0850 840 77 28">
+    <title>Yedek Parça Jet - Ankara Oto Yedek Parça | Çıkma & Sıfır & Orijinal</title>
+    <meta name="description" content="Ankara Ostim merkezli Yedek Parça Jet. Hyundai, Fiat, Toyota, Renault ve tüm markalar için Çıkma, Sıfır Orijinal ve Yan Sanayi yedek parçalar. OEM kodu ile arama yapın. Türkiye'nin her yerine kargo.">
+    <meta name="keywords" content="oto yedek parça, ankara çıkma parça, oem parça sorgulama, yan sanayi yedek parça, orijinal yedek parça, ostim yedek parça, hyundai çıkma, fiat yedek parça">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Yedek Parça Jet">
     
+    <meta property="og:title" content="Yedek Parça Jet - Aradığınız Parçayı Kod ile Bulun">
+    <meta property="og:description" content="Çıkma, Orijinal ve Yan Sanayi seçenekleriyle. OEM No veya Parça Adı ile sorgulama yapın.">
+    <meta property="og:image" content="yedek-parca-jet-com.jpg">
+    <meta property="og:url" content="https://www.yedekparcajet.com">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "AutoPartsStore",
+      "name": "Yedek Parça Jet",
+      "image": "yedek-parca-jet-com.jpg",
+      "telephone": "0850 840 77 28",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Serhat Mah. 1126. Cad. No: 14/A",
+        "addressLocality": "Yenimahalle",
+        "addressRegion": "Ankara",
+        "postalCode": "06374",
+        "addressCountry": "TR"
+      },
+      "url": "https://www.yedekparcajet.com",
+      "priceRange": "₺₺"
+    }
+    </script>
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        body { background-color: #f4f6f9; font-family: 'Segoe UI', sans-serif; }
-        
-        /* KARGO BİLGİ ÇUBUĞU (YENİ EKLENDİ) */
-        .top-bar { background-color: #0056b3; color: white; padding: 8px 0; text-align: center; font-size: 0.9rem; font-weight: bold; }
-        
-        /* LOGO ALANI */
-        .header-area { background: white; border-bottom: 1px solid #ddd; padding: 15px 0; }
-        .logo-img { max-height: 80px; }
-        
-        /* MARKA KUTULARI */
-        .brand-box {
-            background: white; border-radius: 10px; padding: 20px; text-align: center;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05); cursor: pointer; transition: 0.3s;
-            border: 1px solid #eee; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center;
+        :root {
+            --primary: #0044cc; /* Jet Mavisi */
+            --secondary: #f8f9fa;
+            --text-dark: #2c3e50;
         }
-        .brand-box:hover { transform: translateY(-5px); border-color: #0056b3; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
-        .brand-icon { font-size: 2.5rem; color: #555; margin-bottom: 10px; }
-        .brand-title { font-weight: bold; font-size: 1.1rem; color: #333; }
+        body { background-color: #ecf0f1; font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
+        
+        /* KARGO BİLDİRİMİ */
+        .top-banner { background: #d63031; color: white; text-align: center; font-size: 0.9rem; padding: 8px; font-weight: 600; }
+
+        /* HEADER */
+        .header-area { background: white; padding: 15px 0; border-bottom: 4px solid var(--primary); box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        .logo-img { height: 70px; object-fit: contain; }
+        
+        /* ARAMA MOTORU STİLİ */
+        .search-container { position: relative; max-width: 700px; margin: 0 auto; }
+        .search-input { 
+            height: 60px; font-size: 1.1rem; border-radius: 50px; border: 2px solid #dfe6e9; padding-left: 50px; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: 0.3s;
+        }
+        .search-input:focus { border-color: var(--primary); outline: none; box-shadow: 0 5px 20px rgba(0,68,204,0.2); }
+        .search-icon { position: absolute; left: 20px; top: 50%; transform: translateY(-50%); color: #b2bec3; font-size: 1.2rem; }
+
+        /* MARKA KUTULARI */
+        .brand-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); gap: 15px; margin-top: 30px; }
+        .brand-item { 
+            background: white; border-radius: 12px; padding: 15px 10px; text-align: center; cursor: pointer; transition: 0.2s; border: 1px solid #dfe6e9;
+            display: flex; flex-direction: column; align-items: center; justify-content: center; height: 110px;
+        }
+        .brand-item:hover { transform: translateY(-3px); border-color: var(--primary); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .brand-item i { font-size: 2rem; color: #636e72; margin-bottom: 8px; }
+        .brand-item span { font-weight: 600; font-size: 0.9rem; color: var(--text-dark); }
 
         /* ÜRÜN KARTLARI */
-        .product-card { background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.1); transition: 0.3s; cursor: pointer; }
-        .product-card:hover { transform: scale(1.02); }
-        .product-img { width: 100%; height: 220px; object-fit: cover; border-bottom: 1px solid #eee; }
-        .p-body { padding: 15px; }
-        .p-title { font-weight: bold; font-size: 1.1rem; color: #222; margin-bottom: 5px; }
+        .product-card { 
+            background: white; border-radius: 15px; overflow: hidden; border: none; transition: 0.3s; box-shadow: 0 5px 15px rgba(0,0,0,0.03); 
+            height: 100%; display: flex; flex-direction: column;
+        }
+        .product-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+        .p-img-container { position: relative; height: 220px; overflow: hidden; border-bottom: 1px solid #eee; }
+        .p-img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+        .product-card:hover .p-img { transform: scale(1.05); }
         
-        /* BUTONLAR */
-        .wa-btn { background-color: #25D366; color: white !important; font-weight: bold; border-radius: 50px; padding: 10px 20px; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: 0.3s; border: none; }
-        .wa-btn:hover { background-color: #1ebc57; transform: scale(1.05); }
-        .wa-small { width: 100%; justify-content: center; margin-top: 10px; border-radius: 8px; }
+        /* DURUM ETİKETLERİ */
+        .badge-durum { position: absolute; top: 10px; right: 10px; padding: 5px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: bold; color: white; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
+        .bg-cikma { background-color: #e67e22; } /* Turuncu */
+        .bg-sifir-orj { background-color: #27ae60; } /* Yeşil */
+        .bg-yan-sanayi { background-color: #2980b9; } /* Mavi */
 
-        .gizli { display: none !important; }
-        .back-btn { display: none; margin-bottom: 20px; background: #333; color: white; border: none; padding: 10px 20px; border-radius: 5px; }
+        .p-body { padding: 20px; flex-grow: 1; display: flex; flex-direction: column; }
+        .p-title { font-weight: 700; font-size: 1.1rem; color: var(--text-dark); margin-bottom: 5px; }
+        .p-oem { font-size: 0.8rem; color: #7f8c8d; font-family: monospace; background: #f1f2f6; padding: 2px 6px; border-radius: 4px; display: inline-block; margin-bottom: 10px; }
+        
+        .wa-btn { 
+            margin-top: auto; background: #25D366; color: white; font-weight: 600; border: none; padding: 12px; border-radius: 8px; width: 100%; 
+            display: flex; align-items: center; justify-content: center; gap: 8px; transition: 0.2s; text-decoration: none;
+        }
+        .wa-btn:hover { background: #1ebc57; color: white; }
+
+        /* GİZLİLİK VE NAVİGASYON */
+        .hidden { display: none !important; }
+        .back-btn { background: #2d3436; color: white; border: none; padding: 10px 20px; border-radius: 30px; margin-bottom: 20px; display: none; align-items: center; gap: 8px; }
+        .back-btn:hover { background: #000; color: white; }
+
     </style>
 </head>
 <body>
 
-    <div class="top-bar">
-        <i class="fas fa-truck"></i> Ankara Merkezli Depomuzdan Türkiye'nin Her Yerine Hızlı Kargo!
+    <div class="top-banner">
+        <i class="fas fa-shipping-fast"></i> ANKARA MERKEZLİ DEPOMUZDAN 81 İLE AYNI GÜN KARGO!
     </div>
 
-    <div class="header-area sticky-top shadow-sm">
-        <div class="container d-flex justify-content-between align-items-center flex-wrap">
-            <a href="#" onclick="anaSayfayaDon()">
-                <img src="yedek-parca-jet-com.jpg" alt="Logo" class="logo-img" onerror="this.parentElement.innerHTML='<h2>YEDEK PARÇA JET</h2>'">
-            </a>
-            <a href="https://wa.me/908508407728" target="_blank" class="wa-btn">
-                <i class="fab fa-whatsapp fa-lg"></i> 0850 840 77 28
-            </a>
-        </div>
-    </div>
-
-    <div class="container my-5" style="min-height: 600px;">
-        
-        <div class="text-center mb-4" id="main-header">
-            <h2 class="fw-bold">Marka Seçiniz</h2>
-            <p class="text-muted">Parçalarını görmek istediğiniz araç markasına tıklayın.</p>
-        </div>
-
-        <button class="back-btn" onclick="anaSayfayaDon()"><i class="fas fa-arrow-left"></i> Markalara Geri Dön</button>
-
-        <div class="row justify-content-center mb-4" id="search-area">
-            <div class="col-md-6">
-                <input type="text" id="searchInput" class="form-control form-control-lg" placeholder="Marka ara... (Örn: Tofaş, Renault)" onkeyup="markaAra()">
+    <header class="header-area sticky-top">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <a href="#" onclick="anaSayfayaDon()">
+                    <img src="yedek-parca-jet-com.jpg" alt="Yedek Parça Jet Logo" class="logo-img" onerror="this.parentElement.innerHTML='<h3 class=\'fw-bold text-primary\'>YEDEK PARÇA JET</h3>'">
+                </a>
+                <a href="https://wa.me/908508407728" class="btn btn-success rounded-pill px-4 fw-bold">
+                    <i class="fab fa-whatsapp"></i> <span class="d-none d-md-inline">0850 840 77 28</span>
+                </a>
+            </div>
+            
+            <div class="search-container">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" id="searchInput" class="search-input form-control" placeholder="Parça Adı, OEM No veya Ürün Kodu ile arayın..." onkeyup="aramaYap()">
             </div>
         </div>
+    </header>
 
-        <div id="marka-listesi" class="row g-3"></div>
+    <main class="container my-5" style="min-height: 60vh;">
 
-        <div id="urun-listesi" class="row g-4 gizli"></div>
+        <div class="text-center mb-4" id="welcome-text">
+            <h2 class="fw-bold text-dark">Aracınız İçin En Doğru Parça</h2>
+            <p class="text-muted">Aşağıdan marka seçebilir veya yukarıdan parça kodu ile arama yapabilirsiniz.</p>
+        </div>
 
-    </div>
+        <button class="back-btn" onclick="anaSayfayaDon()">
+            <i class="fas fa-arrow-left"></i> Tüm Markalara Dön
+        </button>
 
-    <div class="modal fade" id="detayModal" tabindex="-1">
+        <div id="marka-alani" class="brand-grid"></div>
+
+        <div id="urun-alani" class="row g-4 hidden"></div>
+
+        <div id="no-result" class="text-center py-5 hidden">
+            <i class="fas fa-search fa-3x text-muted mb-3"></i>
+            <h4>Aradığınız kriterde ürün bulunamadı.</h4>
+            <p>Parça stoklarımızda olabilir ama siteye eklenmemiş olabilir.</p>
+            <a href="https://wa.me/908508407728" class="btn btn-outline-success">
+                <i class="fab fa-whatsapp"></i> WhatsApp'tan Sor
+            </a>
+        </div>
+
+    </main>
+
+    <div class="modal fade" id="productModal" tabindex="-1">
         <div class="modal-dialog modal-lg modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title fw-bold" id="m-baslik"></h5>
+            <div class="modal-content border-0 shadow">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title fw-bold" id="m-title">Ürün Detayı</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
                     <div class="row">
-                        <div class="col-md-6">
-                            <img src="" id="m-resim" class="img-fluid rounded" style="width:100%;">
+                        <div class="col-md-6 mb-3">
+                            <img src="" id="m-img" class="img-fluid rounded shadow-sm w-100" style="object-fit: cover; max-height: 400px;">
                         </div>
                         <div class="col-md-6">
-                            <h4 id="m-isim" class="mt-3 mt-md-0"></h4>
-                            <hr>
-                            <p class="text-muted" id="m-aciklama"></p>
+                            <span id="m-badge" class="badge bg-secondary mb-2"></span>
+                            <h3 id="m-name" class="fw-bold mb-2"></h3>
                             
-                            <div class="alert alert-info mt-3">
-                                <i class="fas fa-truck"></i> <strong>Türkiye'nin Her Yerine Kargo:</strong><br>
-                                Ankara merkez depomuzdan anlaşmalı kargo ile gönderim yapılır.
+                            <div class="bg-light p-3 rounded mb-3">
+                                <div class="d-flex justify-content-between border-bottom pb-2 mb-2">
+                                    <span class="text-muted">Marka:</span>
+                                    <span id="m-brand" class="fw-bold text-uppercase"></span>
+                                </div>
+                                <div class="d-flex justify-content-between border-bottom pb-2 mb-2">
+                                    <span class="text-muted">OEM No:</span>
+                                    <span id="m-oem" class="font-monospace text-dark"></span>
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <span class="text-muted">Ürün Kodu:</span>
+                                    <span id="m-code" class="fw-bold"></span>
+                                </div>
+                            </div>
+                            
+                            <p id="m-desc" class="text-muted"></p>
+                            
+                            <div class="alert alert-warning small">
+                                <i class="fas fa-info-circle"></i> Fiyatlarımız döviz kuruna göre değişebilir. Güncel fiyat için lütfen iletişime geçiniz.
                             </div>
 
-                            <a href="" id="m-link" target="_blank" class="wa-btn w-100 text-center justify-content-center py-3">
-                                <i class="fab fa-whatsapp fa-2x"></i> WHATSAPP İLE SİPARİŞ VER
+                            <a href="" id="m-whatsapp" target="_blank" class="btn btn-success w-100 py-3 fw-bold shadow-sm">
+                                <i class="fab fa-whatsapp fa-lg"></i> WHATSAPP İLE FİYAT AL / SİPARİŞ VER
                             </a>
                         </div>
                     </div>
@@ -116,53 +202,96 @@
         </div>
     </div>
 
-    <footer class="bg-dark text-white py-5 mt-5">
-        <div class="container text-center text-md-start">
+    <footer class="bg-dark text-white pt-5 pb-3 mt-5">
+        <div class="container">
             <div class="row">
-                <div class="col-md-4 mb-3">
-                    <h5>Yedek Parça Jet</h5>
-                    <p>Ankara'dan tüm Türkiye'ye garantili çıkma yedek parça hizmeti.</p>
+                <div class="col-md-4 mb-4">
+                    <h5 class="text-warning">Yedek Parça Jet</h5>
+                    <p class="small text-secondary">Ankara'nın en kapsamlı oto yedek parça tedarikçisi. Çıkma, orijinal ve yan sanayi parçalarda güvenilir adres.</p>
                 </div>
-                <div class="col-md-4 mb-3">
-                    <h5>İletişim & Adres</h5>
-                    <p>Serhat Mah. 1126. Cad. No: 14/A Yenimahalle/Ankara</p>
-                    <p><i class="fab fa-whatsapp text-success"></i> 0850 840 77 28</p>
+                <div class="col-md-4 mb-4">
+                    <h5 class="text-white">İletişim</h5>
+                    <ul class="list-unstyled small text-secondary">
+                        <li class="mb-2"><i class="fas fa-map-marker-alt me-2"></i> Serhat Mah. 1126. Cad. No: 14/A Yenimahalle/Ankara</li>
+                        <li class="mb-2"><i class="fas fa-phone me-2"></i> 0850 840 77 28</li>
+                        <li class="mb-2"><i class="fas fa-envelope me-2"></i> info@yedekparcajet.com</li>
+                    </ul>
                 </div>
-                <div class="col-md-4 mb-3">
-                    <h5>Sosyal Medya</h5>
-                    <a href="https://instagram.com/yedekparcajetcom" class="text-white me-3">Instagram</a>
-                    <a href="https://facebook.com/yedekparcajetcom" class="text-white">Facebook</a>
+                <div class="col-md-4 mb-4">
+                    <h5 class="text-white">Takip Edin</h5>
+                    <div class="d-flex gap-3">
+                        <a href="https://instagram.com/yedekparcajetcom" class="text-white"><i class="fab fa-instagram fa-2x"></i></a>
+                        <a href="https://facebook.com/yedekparcajetcom" class="text-white"><i class="fab fa-facebook fa-2x"></i></a>
+                    </div>
                 </div>
+            </div>
+            <hr class="border-secondary">
+            <div class="text-center small text-secondary">
+                &copy; 2026 Yedek Parça Jet - Tüm Hakları Saklıdır.
             </div>
         </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
     <script>
         // ============================================================
-        //  ÜRÜNLER (BUNLARI KENDİNE GÖRE DÜZENLE)
+        //  ÜRÜN VERİ TABANI (BURAYI SEN YÖNETİYORSUN)
         // ============================================================
-        
-        const URUNLER = [
-            { 
-                marka: 'hyundai', 
-                isim: 'Hyundai Accent Era Motor', 
-                resim: 'era-motor.jpg', 
-                aciklama: 'Hyundai Accent Era çıkma orijinal dizel motor. Ankara mağazamızdan teslim veya kargo yapılır.' 
-            },
-            { 
-                marka: 'fiat', 
-                isim: 'Fiat Egea Ön Tampon', 
-                resim: 'egea-tampon.jpg', 
-                aciklama: 'Fiat Egea beyaz renk çıkma ön tampon. Şehir dışına anlaşmalı kargo ile gönderilir.' 
-            },
-          { marka: 'fiat', isim: 'Egea 2020 Panjur', resim: 'resim.jpg', aciklama: 'URUN ACIKLAMASI' },
+        /*
+           NASIL EKLERSİN?
+           marka: 'hyundai' (Küçük harf)
+           isim: 'Ürün Başlığı'
+           oem: 'Parça Numarası' (Yoksa boş bırak '')
+           kod: 'Stok Kodu' (Senin verdiğin kod)
+           durum: 'cikma', 'sifir_orj' veya 'yan_sanayi' (Renk buna göre değişir)
+           resim: 'resim.jpg'
+           aciklama: 'Detaylar'
+        */
 
-            // Yeni ürünleri buraya eklemeye devam et...
+        const URUNLER = [
+            
+            // ÖRNEK 1: ÇIKMA PARÇA
+            { 
+                id: 101,
+                marka: 'hyundai', 
+                isim: 'Hyundai Accent Era 1.5 CRDi Motor', 
+                oem: '21101-2A000', 
+                kod: 'ERA-MTR-001',
+                durum: 'cikma', // Etiketi Turuncu Yapar
+                resim: 'era-motor.jpg', 
+                aciklama: 'Hyundai Accent Era komple dolu sandık motor. Tüm testleri yapılmıştır, üfleme yağ yakma yoktur. Muhayyerdir.' 
+            },
+
+            // ÖRNEK 2: SIFIR ORİJİNAL PARÇA
+            { 
+                id: 102,
+                marka: 'fiat', 
+                isim: 'Fiat Egea Ön Tampon (Makyajlı Kasa)', 
+                oem: '735655000', 
+                kod: 'EGEA-TMP-055',
+                durum: 'sifir_orj', // Etiketi Yeşil Yapar
+                resim: 'egea-tampon.jpg', 
+                aciklama: 'Fiat Egea 2021 ve sonrası uyumlu orijinal OPAR ön tampon. Astar boyalıdır.' 
+            },
+
+            // ÖRNEK 3: YAN SANAYİ PARÇA
+            { 
+                id: 103,
+                marka: 'toyota', 
+                isim: 'Toyota Corolla 2015 Far (Sol)', 
+                oem: '81150-02E80', 
+                kod: 'COR-FAR-12',
+                durum: 'yan_sanayi', // Etiketi Mavi Yapar
+                resim: 'corolla-far.jpg', 
+                aciklama: 'A Kalite yan sanayi (Depo marka) sol ön far. Solma yapmaz.' 
+            },
+
+            // YENİLERİ BURADAN EKLE...
         ];
 
         // ============================================================
-        //  SİTE AYARLARI
+        //  SİSTEM KODLARI (DOKUNMA)
         // ============================================================
 
         const MARKALAR = [
@@ -175,72 +304,154 @@
             {id:'togg', ad:'TOGG'}, {id:'toyota', ad:'Toyota'}, {id:'volkswagen', ad:'Volkswagen'}
         ];
 
-        const divMarkalar = document.getElementById('marka-listesi');
-        const divUrunler = document.getElementById('urun-listesi');
-        const mainHeader = document.getElementById('main-header');
+        const markaAlani = document.getElementById('marka-alani');
+        const urunAlani = document.getElementById('urun-alani');
+        const welcomeText = document.getElementById('welcome-text');
+        const backBtn = document.querySelector('.back-btn');
+        const noResult = document.getElementById('no-result');
 
-        function markaListele() {
-            divMarkalar.innerHTML = '';
+        // Markaları Ekrana Bas
+        function markaYukle() {
+            markaAlani.innerHTML = '';
             MARKALAR.forEach(m => {
-                let box = document.createElement('div');
-                box.className = 'col-6 col-md-4 col-lg-3 marka-item';
-                box.setAttribute('data-name', m.ad.toLowerCase());
-                box.innerHTML = `<div class="brand-box" onclick="urunleriGoster('${m.id}', '${m.ad}')"><i class="fas fa-car brand-icon"></i><div class="brand-title">${m.ad}</div></div>`;
-                divMarkalar.appendChild(box);
+                const div = document.createElement('div');
+                div.className = 'brand-item';
+                div.onclick = () => urunleriListele(m.id, m.ad);
+                div.innerHTML = `<i class="fas fa-car"></i><span>${m.ad}</span>`;
+                markaAlani.appendChild(div);
             });
         }
 
-        function urunleriGoster(markaId, markaAd) {
-            const secilenUrunler = URUNLER.filter(u => u.marka === markaId);
-            divMarkalar.classList.add('gizli');
-            document.getElementById('search-area').classList.add('gizli');
-            divUrunler.classList.remove('gizli');
-            document.querySelector('.back-btn').style.display = 'inline-block';
-            mainHeader.querySelector('h2').innerText = markaAd + " Parçaları";
+        // Ürünleri Ekrana Bas (Filtreli veya Filtresiz)
+        function urunleriListele(markaId = null, markaAd = null, aramaKelimesi = null) {
+            urunAlani.innerHTML = '';
             
-            divUrunler.innerHTML = '';
-            if(secilenUrunler.length === 0) {
-                divUrunler.innerHTML = '<div class="col-12 text-center py-5"><h4>Bu markada henüz ürün yok.</h4><p>Stoğumuzu öğrenmek için WhatsApp\'tan yazabilirsiniz.</p></div>';
-                return;
+            // Filtreleme Mantığı
+            let sonucUrunler = URUNLER;
+
+            if (markaId) {
+                sonucUrunler = URUNLER.filter(u => u.marka === markaId);
+                // Görünüm Ayarları
+                welcomeText.querySelector('h2').innerText = markaAd + " Parçaları";
+                welcomeText.querySelector('p').innerText = "Listelenen ürünlerden seçiminizi yapın.";
+                markaAlani.classList.add('hidden');
+                urunAlani.classList.remove('hidden');
+                backBtn.style.display = 'flex';
+            } 
+            else if (aramaKelimesi) {
+                const kucukHarf = aramaKelimesi.toLowerCase();
+                sonucUrunler = URUNLER.filter(u => 
+                    u.isim.toLowerCase().includes(kucukHarf) || 
+                    u.oem.toLowerCase().includes(kucukHarf) || 
+                    u.kod.toLowerCase().includes(kucukHarf)
+                );
+                // Arama Görünümü
+                markaAlani.classList.add('hidden');
+                urunAlani.classList.remove('hidden');
+                backBtn.style.display = 'flex';
+                welcomeText.querySelector('h2').innerText = "Arama Sonuçları";
+                welcomeText.querySelector('p').innerText = `"${aramaKelimesi}" için bulunan sonuçlar:`;
             }
-            secilenUrunler.forEach(u => {
-                let imgPath = u.resim ? u.resim : 'https://via.placeholder.com/300x200?text=Resim+Yok';
-                divUrunler.innerHTML += `
-                    <div class="col-12 col-md-6 col-lg-4">
-                        <div class="product-card" onclick='detayAc(${JSON.stringify(u)})'>
-                            <img src="${imgPath}" class="product-img">
-                            <div class="p-body"><h5 class="p-title">${u.isim}</h5><button class="wa-btn wa-small">Fiyat Sor</button></div>
+
+            // Sonuç Yoksa
+            if (sonucUrunler.length === 0) {
+                noResult.classList.remove('hidden');
+                urunAlani.innerHTML = '';
+                return;
+            } else {
+                noResult.classList.add('hidden');
+            }
+
+            // Kartları Oluştur
+            sonucUrunler.forEach(u => {
+                // Etiket Rengi ve Yazısı Belirle
+                let etiketClass = 'bg-secondary';
+                let etiketYazi = 'Bilinmiyor';
+                if(u.durum === 'cikma') { etiketClass = 'bg-cikma'; etiketYazi = 'ÇIKMA'; }
+                if(u.durum === 'sifir_orj') { etiketClass = 'bg-sifir-orj'; etiketYazi = 'SIFIR ORİJİNAL'; }
+                if(u.durum === 'yan_sanayi') { etiketClass = 'bg-yan-sanayi'; etiketYazi = 'YAN SANAYİ'; }
+
+                let resimYolu = u.resim ? u.resim : 'https://via.placeholder.com/300x200?text=Resim+Yok';
+
+                const col = document.createElement('div');
+                col.className = 'col-6 col-md-4 col-lg-3';
+                col.innerHTML = `
+                    <div class="product-card" onclick='modalAc(${JSON.stringify(u)})'>
+                        <div class="p-img-container">
+                            <span class="badge-durum ${etiketClass}">${etiketYazi}</span>
+                            <img src="${resimYolu}" class="p-img" alt="${u.isim}">
                         </div>
-                    </div>`;
+                        <div class="p-body">
+                            <div class="p-title text-truncate">${u.isim}</div>
+                            <div><small class="p-oem">OEM: ${u.oem || 'Yok'}</small></div>
+                            <div class="text-muted small mb-2" style="font-size:0.8rem">Kod: ${u.kod}</div>
+                            <button class="wa-btn">
+                                <i class="fab fa-whatsapp"></i> Fiyat Al
+                            </button>
+                        </div>
+                    </div>
+                `;
+                urunAlani.appendChild(col);
             });
         }
 
-        function detayAc(urun) {
-            document.getElementById('m-baslik').innerText = urun.isim;
-            document.getElementById('m-isim').innerText = urun.isim;
-            document.getElementById('m-resim').src = urun.resim;
-            document.getElementById('m-aciklama').innerText = urun.aciklama;
-            let link = `https://wa.me/908508407728?text=Merhaba, "${urun.isim}" kargo ile gönderim yapıyor musunuz? Fiyat nedir?`;
-            document.getElementById('m-link').href = link;
-            new bootstrap.Modal(document.getElementById('detayModal')).show();
-        }
-
-        function anaSayfayaDon() {
-            divMarkalar.classList.remove('gizli');
-            document.getElementById('search-area').classList.remove('gizli');
-            divUrunler.classList.add('gizli');
-            document.querySelector('.back-btn').style.display = 'none';
-            mainHeader.querySelector('h2').innerText = "Marka Seçiniz";
-        }
-
-        function markaAra() {
-            let input = document.getElementById('searchInput').value.toLowerCase();
-            let items = document.getElementsByClassName('marka-item');
-            for (let i = 0; i < items.length; i++) {
-                items[i].style.display = items[i].getAttribute('data-name').includes(input) ? "block" : "none";
+        // Arama Fonksiyonu (Input'a yazıldıkça çalışır)
+        function aramaYap() {
+            const kelime = document.getElementById('searchInput').value;
+            if (kelime.length > 2) { // En az 3 harf yazınca ara
+                urunleriListele(null, null, kelime);
+            } else if (kelime.length === 0) {
+                anaSayfayaDon();
             }
         }
-        markaListele();
+
+        // Ana Sayfaya Dön
+        function anaSayfayaDon() {
+            markaAlani.classList.remove('hidden');
+            urunAlani.classList.add('hidden');
+            backBtn.style.display = 'none';
+            noResult.classList.add('hidden');
+            document.getElementById('searchInput').value = '';
+            welcomeText.querySelector('h2').innerText = "Aracınız İçin En Doğru Parça";
+            welcomeText.querySelector('p').innerText = "Aşağıdan marka seçebilir veya yukarıdan parça kodu ile arama yapabilirsiniz.";
+        }
+
+        // Modal Açma
+        function modalAc(u) {
+            document.getElementById('m-name').innerText = u.isim;
+            document.getElementById('m-brand').innerText = u.marka;
+            document.getElementById('m-oem').innerText = u.oem || 'Belirtilmemiş';
+            document.getElementById('m-code').innerText = u.kod || 'Belirtilmemiş';
+            document.getElementById('m-desc').innerText = u.aciklama;
+            
+            const resim = u.resim ? u.resim : 'https://via.placeholder.com/300x200';
+            document.getElementById('m-img').src = resim;
+
+            // Etiket Ayarı
+            const badge = document.getElementById('m-badge');
+            if(u.durum === 'cikma') { badge.className = 'badge bg-cikma'; badge.innerText = 'ÇIKMA PARÇA'; }
+            else if(u.durum === 'sifir_orj') { badge.className = 'badge bg-sifir-orj'; badge.innerText = 'SIFIR ORİJİNAL'; }
+            else { badge.className = 'badge bg-yan-sanayi'; badge.innerText = 'YAN SANAYİ'; }
+
+            // WhatsApp Mesajı Oluştur (Çok Profesyonel)
+            const mesaj = `Merhaba, web sitenizdeki şu ürün için fiyat almak istiyorum:
+            
+Ürün: ${u.isim}
+Stok Kodu: ${u.kod}
+OEM No: ${u.oem}
+Durumu: ${badge.innerText}
+
+Kargo ve fiyat bilgisi alabilir miyim?`;
+
+            const link = `https://wa.me/908508407728?text=${encodeURIComponent(mesaj)}`;
+            document.getElementById('m-whatsapp').href = link;
+
+            new bootstrap.Modal(document.getElementById('productModal')).show();
+        }
+
+        // Başlangıç
+        markaYukle();
+
     </script>
 </body>
 </html>
