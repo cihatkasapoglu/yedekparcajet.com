@@ -4,47 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>Yedek Parça Jet - Ankara Oto Yedek Parça | Çıkma & Sıfır & Orijinal</title>
-    <meta name="description" content="Ankara Ostim merkezli Yedek Parça Jet. Hyundai, Fiat, Toyota, Renault ve tüm markalar için Çıkma, Sıfır Orijinal ve Yan Sanayi yedek parçalar. OEM kodu ile arama yapın. Türkiye'nin her yerine kargo.">
-    <meta name="keywords" content="oto yedek parça, ankara çıkma parça, oem parça sorgulama, yan sanayi yedek parça, orijinal yedek parça, ostim yedek parça, hyundai çıkma, fiat yedek parça">
+    <title>Yedek Parça Jet - Ankara Oto Yedek Parça | Tüm Markalar</title>
+    <meta name="description" content="Ankara Ostim merkezli Yedek Parça Jet. Hyundai, Fiat, Toyota, Renault ve tüm markalar için yedek parça tedariği. OEM kodu ile arama yapın. Türkiye'nin her yerine kargo.">
+    <meta name="keywords" content="oto yedek parça, ankara yedek parça, oem parça sorgulama, ostim yedek parça, hyundai parça, fiat parça, toyota parça">
     <meta name="robots" content="index, follow">
-    <meta name="author" content="Yedek Parça Jet">
     
-    <meta property="og:title" content="Yedek Parça Jet - Aradığınız Parçayı Kod ile Bulun">
-    <meta property="og:description" content="Çıkma, Orijinal ve Yan Sanayi seçenekleriyle. OEM No veya Parça Adı ile sorgulama yapın.">
-    <meta property="og:image" content="yedek-parca-jet-com.jpg">
-    <meta property="og:url" content="https://www.yedekparcajet.com">
-
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "AutoPartsStore",
-      "name": "Yedek Parça Jet",
-      "image": "yedek-parca-jet-com.jpg",
-      "telephone": "0850 840 77 28",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Serhat Mah. 1126. Cad. No: 14/A",
-        "addressLocality": "Yenimahalle",
-        "addressRegion": "Ankara",
-        "postalCode": "06374",
-        "addressCountry": "TR"
-      },
-      "url": "https://www.yedekparcajet.com",
-      "priceRange": "₺₺"
-    }
-    </script>
-
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
-            --primary: #0044cc; /* Jet Mavisi */
-            --secondary: #f8f9fa;
+            --primary: #0044cc;
             --text-dark: #2c3e50;
         }
-        body { background-color: #ecf0f1; font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
+        body { background-color: #ecf0f1; font-family: 'Segoe UI', sans-serif; }
         
         /* KARGO BİLDİRİMİ */
         .top-banner { background: #d63031; color: white; text-align: center; font-size: 0.9rem; padding: 8px; font-weight: 600; }
@@ -53,13 +26,13 @@
         .header-area { background: white; padding: 15px 0; border-bottom: 4px solid var(--primary); box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
         .logo-img { height: 70px; object-fit: contain; }
         
-        /* ARAMA MOTORU STİLİ */
+        /* ARAMA MOTORU */
         .search-container { position: relative; max-width: 700px; margin: 0 auto; }
         .search-input { 
             height: 60px; font-size: 1.1rem; border-radius: 50px; border: 2px solid #dfe6e9; padding-left: 50px; 
             box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: 0.3s;
         }
-        .search-input:focus { border-color: var(--primary); outline: none; box-shadow: 0 5px 20px rgba(0,68,204,0.2); }
+        .search-input:focus { border-color: var(--primary); outline: none; }
         .search-icon { position: absolute; left: 20px; top: 50%; transform: translateY(-50%); color: #b2bec3; font-size: 1.2rem; }
 
         /* MARKA KUTULARI */
@@ -78,16 +51,10 @@
             height: 100%; display: flex; flex-direction: column;
         }
         .product-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
-        .p-img-container { position: relative; height: 220px; overflow: hidden; border-bottom: 1px solid #eee; }
+        .p-img-container { height: 220px; overflow: hidden; border-bottom: 1px solid #eee; position: relative; }
         .p-img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
         .product-card:hover .p-img { transform: scale(1.05); }
         
-        /* DURUM ETİKETLERİ */
-        .badge-durum { position: absolute; top: 10px; right: 10px; padding: 5px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: bold; color: white; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
-        .bg-cikma { background-color: #e67e22; } /* Turuncu */
-        .bg-sifir-orj { background-color: #27ae60; } /* Yeşil */
-        .bg-yan-sanayi { background-color: #2980b9; } /* Mavi */
-
         .p-body { padding: 20px; flex-grow: 1; display: flex; flex-direction: column; }
         .p-title { font-weight: 700; font-size: 1.1rem; color: var(--text-dark); margin-bottom: 5px; }
         .p-oem { font-size: 0.8rem; color: #7f8c8d; font-family: monospace; background: #f1f2f6; padding: 2px 6px; border-radius: 4px; display: inline-block; margin-bottom: 10px; }
@@ -102,7 +69,6 @@
         .hidden { display: none !important; }
         .back-btn { background: #2d3436; color: white; border: none; padding: 10px 20px; border-radius: 30px; margin-bottom: 20px; display: none; align-items: center; gap: 8px; }
         .back-btn:hover { background: #000; color: white; }
-
     </style>
 </head>
 <body>
@@ -115,7 +81,7 @@
         <div class="container">
             <div class="d-flex justify-content-between align-items-center mb-3">
                 <a href="#" onclick="anaSayfayaDon()">
-                    <img src="yedek-parca-jet-com.jpg" alt="Yedek Parça Jet Logo" class="logo-img" onerror="this.parentElement.innerHTML='<h3 class=\'fw-bold text-primary\'>YEDEK PARÇA JET</h3>'">
+                    <img src="yedek-parca-jet-com.jpg" alt="Logo" class="logo-img" onerror="this.parentElement.innerHTML='<h3 class=\'fw-bold text-primary\'>YEDEK PARÇA JET</h3>'">
                 </a>
                 <a href="https://wa.me/908508407728" class="btn btn-success rounded-pill px-4 fw-bold">
                     <i class="fab fa-whatsapp"></i> <span class="d-none d-md-inline">0850 840 77 28</span>
@@ -132,7 +98,7 @@
     <main class="container my-5" style="min-height: 60vh;">
 
         <div class="text-center mb-4" id="welcome-text">
-            <h2 class="fw-bold text-dark">Aracınız İçin En Doğru Parça</h2>
+            <h2 class="fw-bold text-dark">Marka Seçiniz</h2>
             <p class="text-muted">Aşağıdan marka seçebilir veya yukarıdan parça kodu ile arama yapabilirsiniz.</p>
         </div>
 
@@ -146,8 +112,8 @@
 
         <div id="no-result" class="text-center py-5 hidden">
             <i class="fas fa-search fa-3x text-muted mb-3"></i>
-            <h4>Aradığınız kriterde ürün bulunamadı.</h4>
-            <p>Parça stoklarımızda olabilir ama siteye eklenmemiş olabilir.</p>
+            <h4>Sonuç Bulunamadı</h4>
+            <p>Parça stoklarımızda olabilir, WhatsApp'tan sorabilirsiniz.</p>
             <a href="https://wa.me/908508407728" class="btn btn-outline-success">
                 <i class="fab fa-whatsapp"></i> WhatsApp'tan Sor
             </a>
@@ -168,8 +134,7 @@
                             <img src="" id="m-img" class="img-fluid rounded shadow-sm w-100" style="object-fit: cover; max-height: 400px;">
                         </div>
                         <div class="col-md-6">
-                            <span id="m-badge" class="badge bg-secondary mb-2"></span>
-                            <h3 id="m-name" class="fw-bold mb-2"></h3>
+                            <h3 id="m-name" class="fw-bold mb-3"></h3>
                             
                             <div class="bg-light p-3 rounded mb-3">
                                 <div class="d-flex justify-content-between border-bottom pb-2 mb-2">
@@ -181,17 +146,13 @@
                                     <span id="m-oem" class="font-monospace text-dark"></span>
                                 </div>
                                 <div class="d-flex justify-content-between">
-                                    <span class="text-muted">Ürün Kodu:</span>
+                                    <span class="text-muted">Stok Kodu:</span>
                                     <span id="m-code" class="fw-bold"></span>
                                 </div>
                             </div>
                             
-                            <p id="m-desc" class="text-muted"></p>
+                            <p id="m-desc" class="text-muted mb-4"></p>
                             
-                            <div class="alert alert-warning small">
-                                <i class="fas fa-info-circle"></i> Fiyatlarımız döviz kuruna göre değişebilir. Güncel fiyat için lütfen iletişime geçiniz.
-                            </div>
-
                             <a href="" id="m-whatsapp" target="_blank" class="btn btn-success w-100 py-3 fw-bold shadow-sm">
                                 <i class="fab fa-whatsapp fa-lg"></i> WHATSAPP İLE FİYAT AL / SİPARİŞ VER
                             </a>
@@ -206,15 +167,14 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4 mb-4">
-                    <h5 class="text-warning">Yedek Parça Jet</h5>
-                    <p class="small text-secondary">Ankara'nın en kapsamlı oto yedek parça tedarikçisi. Çıkma, orijinal ve yan sanayi parçalarda güvenilir adres.</p>
+                    <h5 class="text-white">Yedek Parça Jet</h5>
+                    <p class="small text-secondary">Ankara'nın en kapsamlı oto yedek parça tedarikçisi. Türkiye'nin her yerine güvenilir kargo.</p>
                 </div>
                 <div class="col-md-4 mb-4">
                     <h5 class="text-white">İletişim</h5>
                     <ul class="list-unstyled small text-secondary">
                         <li class="mb-2"><i class="fas fa-map-marker-alt me-2"></i> Serhat Mah. 1126. Cad. No: 14/A Yenimahalle/Ankara</li>
                         <li class="mb-2"><i class="fas fa-phone me-2"></i> 0850 840 77 28</li>
-                        <li class="mb-2"><i class="fas fa-envelope me-2"></i> info@yedekparcajet.com</li>
                     </ul>
                 </div>
                 <div class="col-md-4 mb-4">
@@ -225,10 +185,6 @@
                     </div>
                 </div>
             </div>
-            <hr class="border-secondary">
-            <div class="text-center small text-secondary">
-                &copy; 2026 Yedek Parça Jet - Tüm Hakları Saklıdır.
-            </div>
         </div>
     </footer>
 
@@ -236,62 +192,46 @@
     
     <script>
         // ============================================================
-        //  ÜRÜN VERİ TABANI (BURAYI SEN YÖNETİYORSUN)
+        //  ÜRÜN LİSTESİ (ETİKETSİZ VE SADE)
         // ============================================================
-        /*
-           NASIL EKLERSİN?
-           marka: 'hyundai' (Küçük harf)
-           isim: 'Ürün Başlığı'
-           oem: 'Parça Numarası' (Yoksa boş bırak '')
-           kod: 'Stok Kodu' (Senin verdiğin kod)
-           durum: 'cikma', 'sifir_orj' veya 'yan_sanayi' (Renk buna göre değişir)
-           resim: 'resim.jpg'
-           aciklama: 'Detaylar'
-        */
-
+        
         const URUNLER = [
             
-            // ÖRNEK 1: ÇIKMA PARÇA
+            // ÜRÜN 1
             { 
-                id: 101,
                 marka: 'hyundai', 
                 isim: 'Hyundai Accent Era 1.5 CRDi Motor', 
                 oem: '21101-2A000', 
                 kod: 'ERA-MTR-001',
-                durum: 'cikma', // Etiketi Turuncu Yapar
                 resim: 'era-motor.jpg', 
-                aciklama: 'Hyundai Accent Era komple dolu sandık motor. Tüm testleri yapılmıştır, üfleme yağ yakma yoktur. Muhayyerdir.' 
+                aciklama: 'Hyundai Accent Era komple dolu sandık motor. Tüm testleri yapılmıştır.' 
             },
 
-            // ÖRNEK 2: SIFIR ORİJİNAL PARÇA
+            // ÜRÜN 2
             { 
-                id: 102,
                 marka: 'fiat', 
                 isim: 'Fiat Egea Ön Tampon (Makyajlı Kasa)', 
                 oem: '735655000', 
                 kod: 'EGEA-TMP-055',
-                durum: 'sifir_orj', // Etiketi Yeşil Yapar
                 resim: 'egea-tampon.jpg', 
-                aciklama: 'Fiat Egea 2021 ve sonrası uyumlu orijinal OPAR ön tampon. Astar boyalıdır.' 
+                aciklama: 'Fiat Egea 2021 ve sonrası uyumlu ön tampon. Astar boyalıdır.' 
             },
 
-            // ÖRNEK 3: YAN SANAYİ PARÇA
+            // ÜRÜN 3
             { 
-                id: 103,
                 marka: 'toyota', 
                 isim: 'Toyota Corolla 2015 Far (Sol)', 
                 oem: '81150-02E80', 
                 kod: 'COR-FAR-12',
-                durum: 'yan_sanayi', // Etiketi Mavi Yapar
                 resim: 'corolla-far.jpg', 
-                aciklama: 'A Kalite yan sanayi (Depo marka) sol ön far. Solma yapmaz.' 
+                aciklama: 'Toyota Corolla sol ön far. Solma yapmaz, temiz parça.' 
             },
-
-            // YENİLERİ BURADAN EKLE...
+            
+            // YENİLERİ BURAYA EKLE...
         ];
 
         // ============================================================
-        //  SİSTEM KODLARI (DOKUNMA)
+        //  SİSTEM KODLARI
         // ============================================================
 
         const MARKALAR = [
@@ -310,7 +250,6 @@
         const backBtn = document.querySelector('.back-btn');
         const noResult = document.getElementById('no-result');
 
-        // Markaları Ekrana Bas
         function markaYukle() {
             markaAlani.innerHTML = '';
             MARKALAR.forEach(m => {
@@ -322,16 +261,12 @@
             });
         }
 
-        // Ürünleri Ekrana Bas (Filtreli veya Filtresiz)
         function urunleriListele(markaId = null, markaAd = null, aramaKelimesi = null) {
             urunAlani.innerHTML = '';
-            
-            // Filtreleme Mantığı
             let sonucUrunler = URUNLER;
 
             if (markaId) {
                 sonucUrunler = URUNLER.filter(u => u.marka === markaId);
-                // Görünüm Ayarları
                 welcomeText.querySelector('h2').innerText = markaAd + " Parçaları";
                 welcomeText.querySelector('p').innerText = "Listelenen ürünlerden seçiminizi yapın.";
                 markaAlani.classList.add('hidden');
@@ -345,7 +280,6 @@
                     u.oem.toLowerCase().includes(kucukHarf) || 
                     u.kod.toLowerCase().includes(kucukHarf)
                 );
-                // Arama Görünümü
                 markaAlani.classList.add('hidden');
                 urunAlani.classList.remove('hidden');
                 backBtn.style.display = 'flex';
@@ -353,7 +287,6 @@
                 welcomeText.querySelector('p').innerText = `"${aramaKelimesi}" için bulunan sonuçlar:`;
             }
 
-            // Sonuç Yoksa
             if (sonucUrunler.length === 0) {
                 noResult.classList.remove('hidden');
                 urunAlani.innerHTML = '';
@@ -362,23 +295,13 @@
                 noResult.classList.add('hidden');
             }
 
-            // Kartları Oluştur
             sonucUrunler.forEach(u => {
-                // Etiket Rengi ve Yazısı Belirle
-                let etiketClass = 'bg-secondary';
-                let etiketYazi = 'Bilinmiyor';
-                if(u.durum === 'cikma') { etiketClass = 'bg-cikma'; etiketYazi = 'ÇIKMA'; }
-                if(u.durum === 'sifir_orj') { etiketClass = 'bg-sifir-orj'; etiketYazi = 'SIFIR ORİJİNAL'; }
-                if(u.durum === 'yan_sanayi') { etiketClass = 'bg-yan-sanayi'; etiketYazi = 'YAN SANAYİ'; }
-
                 let resimYolu = u.resim ? u.resim : 'https://via.placeholder.com/300x200?text=Resim+Yok';
-
                 const col = document.createElement('div');
                 col.className = 'col-6 col-md-4 col-lg-3';
                 col.innerHTML = `
                     <div class="product-card" onclick='modalAc(${JSON.stringify(u)})'>
                         <div class="p-img-container">
-                            <span class="badge-durum ${etiketClass}">${etiketYazi}</span>
                             <img src="${resimYolu}" class="p-img" alt="${u.isim}">
                         </div>
                         <div class="p-body">
@@ -395,28 +318,25 @@
             });
         }
 
-        // Arama Fonksiyonu (Input'a yazıldıkça çalışır)
         function aramaYap() {
             const kelime = document.getElementById('searchInput').value;
-            if (kelime.length > 2) { // En az 3 harf yazınca ara
+            if (kelime.length > 2) { 
                 urunleriListele(null, null, kelime);
             } else if (kelime.length === 0) {
                 anaSayfayaDon();
             }
         }
 
-        // Ana Sayfaya Dön
         function anaSayfayaDon() {
             markaAlani.classList.remove('hidden');
             urunAlani.classList.add('hidden');
             backBtn.style.display = 'none';
             noResult.classList.add('hidden');
             document.getElementById('searchInput').value = '';
-            welcomeText.querySelector('h2').innerText = "Aracınız İçin En Doğru Parça";
+            welcomeText.querySelector('h2').innerText = "Marka Seçiniz";
             welcomeText.querySelector('p').innerText = "Aşağıdan marka seçebilir veya yukarıdan parça kodu ile arama yapabilirsiniz.";
         }
 
-        // Modal Açma
         function modalAc(u) {
             document.getElementById('m-name').innerText = u.isim;
             document.getElementById('m-brand').innerText = u.marka;
@@ -427,21 +347,13 @@
             const resim = u.resim ? u.resim : 'https://via.placeholder.com/300x200';
             document.getElementById('m-img').src = resim;
 
-            // Etiket Ayarı
-            const badge = document.getElementById('m-badge');
-            if(u.durum === 'cikma') { badge.className = 'badge bg-cikma'; badge.innerText = 'ÇIKMA PARÇA'; }
-            else if(u.durum === 'sifir_orj') { badge.className = 'badge bg-sifir-orj'; badge.innerText = 'SIFIR ORİJİNAL'; }
-            else { badge.className = 'badge bg-yan-sanayi'; badge.innerText = 'YAN SANAYİ'; }
-
-            // WhatsApp Mesajı Oluştur (Çok Profesyonel)
             const mesaj = `Merhaba, web sitenizdeki şu ürün için fiyat almak istiyorum:
             
 Ürün: ${u.isim}
 Stok Kodu: ${u.kod}
 OEM No: ${u.oem}
-Durumu: ${badge.innerText}
 
-Kargo ve fiyat bilgisi alabilir miyim?`;
+Fiyat ve stok bilgisi alabilir miyim?`;
 
             const link = `https://wa.me/908508407728?text=${encodeURIComponent(mesaj)}`;
             document.getElementById('m-whatsapp').href = link;
@@ -449,9 +361,7 @@ Kargo ve fiyat bilgisi alabilir miyim?`;
             new bootstrap.Modal(document.getElementById('productModal')).show();
         }
 
-        // Başlangıç
         markaYukle();
-
     </script>
 </body>
 </html>
