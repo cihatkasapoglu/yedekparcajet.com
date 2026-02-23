@@ -10,8 +10,9 @@
     
     <style>
         :root {
-            --primary: #1a1a1a; 
-            --accent: #d32f2f; 
+            /* Yeni Renk Paleti: Lacivert, Beyaz ve Kırmızı */
+            --primary: #002b5e; /* Koyu Lacivert - Güven verir */
+            --accent: #e63946;  /* Canlı Kırmızı - Dikkat çeker */
             --light: #f4f6f9;
             --whatsapp: #25D366;
             --border: #e0e0e0;
@@ -23,41 +24,43 @@
         body { background-color: var(--light); color: #333; }
         a { text-decoration: none; color: inherit; }
 
-        /* ÖZEL KAYDIRMA ÇUBUĞU (SCROLLBAR) */
+        /* ÖZEL KAYDIRMA ÇUBUĞU */
         ::-webkit-scrollbar { width: 6px; }
         ::-webkit-scrollbar-track { background: #f1f1f1; }
         ::-webkit-scrollbar-thumb { background: #ccc; border-radius: 10px; }
-        ::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+        ::-webkit-scrollbar-thumb:hover { background: var(--primary); }
 
-        /* ÜST BİLGİ ŞERİDİ */
-        .top-bar { background: var(--primary); color: #fff; padding: 10px 0; font-size: 0.85rem; text-align: center; letter-spacing: 0.5px; }
-        .top-bar span { font-weight: bold; color: var(--accent); }
+        /* ÜST BİLGİ ŞERİDİ (Okunabilirlik artırıldı) */
+        .top-bar { background: var(--primary); color: #fff; padding: 12px 0; font-size: 0.9rem; text-align: center; letter-spacing: 0.5px; }
+        .top-bar span { font-weight: 800; background: var(--accent); color: #fff; padding: 4px 10px; border-radius: 4px; margin-left: 5px; display: inline-block; }
 
         /* HEADER */
-        header { background: #fff; padding: 15px 0; border-bottom: 3px solid var(--accent); position: sticky; top:0; z-index: 1000; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+        header { background: #fff; padding: 15px 0; border-bottom: 4px solid var(--accent); position: sticky; top:0; z-index: 1000; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
         .container { max-width: 1350px; margin: 0 auto; padding: 0 15px; }
         .flex-between { display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; }
         
         .logo img { height: 90px; object-fit: contain; transition: transform 0.3s ease; }
         .logo img:hover { transform: scale(1.02); }
         
-        .search-box { flex: 1; max-width: 600px; position: relative; }
+        .search-box { flex: 1; max-width: 550px; position: relative; }
         .search-box input { width: 100%; padding: 14px 20px 14px 45px; border: 2px solid var(--border); border-radius: 8px; outline: none; font-size: 1rem; transition: all 0.3s; background-color: #fdfdfd; }
-        .search-box input:focus { border-color: var(--accent); background-color: #fff; box-shadow: 0 0 0 3px rgba(211, 47, 47, 0.1); }
+        .search-box input:focus { border-color: var(--primary); background-color: #fff; box-shadow: 0 0 0 3px rgba(0, 43, 94, 0.1); }
         .search-box i { position: absolute; left: 18px; top: 50%; transform: translateY(-50%); color: #888; font-size: 1.1rem; }
 
-        .header-contact { text-align: right; }
-        .header-contact .phone { font-weight: 800; font-size: 1.25rem; color: var(--primary); display: block; letter-spacing: 0.5px; }
-        .header-contact .info-text { font-size: 0.8rem; color: #666; margin-top: 4px; font-weight: 500; }
+        /* HEADER İLETİŞİM VE YENİ WHATSAPP BUTONU */
+        .header-contact { text-align: right; display: flex; flex-direction: column; align-items: flex-end; }
+        .header-contact .phone { font-weight: 800; font-size: 1.3rem; color: var(--primary); display: block; letter-spacing: 0.5px; }
+        .header-wa-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: var(--whatsapp); color: #fff; padding: 8px 15px; border-radius: 6px; font-weight: 700; font-size: 0.95rem; margin-top: 6px; transition: 0.3s; box-shadow: 0 3px 8px rgba(37,211,102,0.3); }
+        .header-wa-btn:hover { background: #20b958; transform: translateY(-2px); box-shadow: 0 5px 12px rgba(37,211,102,0.4); }
 
         /* ANA DÜZEN */
         .main-layout { display: flex; margin: 40px auto; gap: 40px; align-items: flex-start; }
         
-        /* MOBİL MENÜ BUTONU (Masaüstünde Gizli) */
+        /* MOBİL MENÜ BUTONU */
         .mobile-filter-toggle { display: none; width: 100%; padding: 15px; background: var(--primary); color: #fff; border: none; border-radius: 8px; font-weight: 700; font-size: 1rem; cursor: pointer; margin-bottom: 20px; text-align: center; }
         
         /* SOL MENÜ */
-        aside { flex: 0 0 300px; background: #fff; border: 1px solid var(--border); border-radius: 10px; position: sticky; top: 140px; max-height: calc(100vh - 160px); display: flex; flex-direction: column; box-shadow: var(--card-shadow); overflow: hidden; }
+        aside { flex: 0 0 300px; background: #fff; border: 1px solid var(--border); border-radius: 10px; position: sticky; top: 150px; max-height: calc(100vh - 170px); display: flex; flex-direction: column; box-shadow: var(--card-shadow); overflow: hidden; }
         .sidebar-title { background: var(--primary); color: #fff; padding: 18px; text-align: center; font-weight: 800; font-size: 1.05rem; letter-spacing: 1px; }
         
         .menu-container { overflow-y: auto; flex: 1; }
@@ -68,8 +71,8 @@
         .panel { display: none; background-color: #fafafa; border-bottom: 1px solid #eee; }
         .panel button { width: 100%; text-align: left; padding: 12px 15px 12px 35px; background: none; border: none; font-size: 0.9rem; color: #555; cursor: pointer; transition: 0.2s; font-weight: 500; position: relative; }
         .panel button::before { content: "•"; position: absolute; left: 20px; color: #ccc; transition: 0.2s; }
-        .panel button:hover { color: var(--accent); background: #f0f0f0; padding-left: 40px; }
-        .panel button:hover::before { color: var(--accent); left: 25px; }
+        .panel button:hover { color: var(--primary); background: #f0f0f0; padding-left: 40px; }
+        .panel button:hover::before { color: var(--primary); left: 25px; }
         .sub-header { padding: 8px 15px 8px 25px; font-size: 0.8rem; font-weight: 800; color: #888; background: #eee; margin-top: 5px; }
 
         /* ÜRÜN LİSTESİ */
@@ -103,7 +106,7 @@
         .detail-info { flex: 1.2; min-width: 320px; display: flex; flex-direction: column; justify-content: center; }
         .d-cat { color: #fff; background: var(--accent); padding: 5px 12px; border-radius: 4px; font-weight: 800; margin-bottom: 15px; font-size: 0.85rem; display: inline-block; width: fit-content; }
         .d-title { font-size: 2.2rem; color: var(--primary); margin-bottom: 25px; line-height: 1.2; font-weight: 800; }
-        .d-desc { color: #444; line-height: 1.7; background: #f9fbfd; padding: 25px; border: 1px solid #edf2f7; border-left: 4px solid var(--accent); margin-bottom: 25px; font-size: 1.05rem; border-radius: 0 8px 8px 0; }
+        .d-desc { color: #444; line-height: 1.7; background: #f9fbfd; padding: 25px; border: 1px solid #edf2f7; border-left: 4px solid var(--primary); margin-bottom: 25px; font-size: 1.05rem; border-radius: 0 8px 8px 0; }
         
         .shipping-note { background: #e8f5e9; color: #2e7d32; padding: 15px 20px; border-radius: 8px; font-weight: 700; font-size: 0.95rem; margin-bottom: 30px; border: 1px solid #c8e6c9; display: flex; align-items: center; gap: 15px; }
         .shipping-note i { font-size: 1.5rem; }
@@ -132,7 +135,7 @@
             aside { width: 100%; position: relative; top: 0; margin-bottom: 10px; display: none; }
             aside.open { display: flex; }
             .menu-container { max-height: 60vh; }
-            .header-contact { width: 100%; text-align: center; margin-top: 15px; border-top: 1px solid #eee; padding-top: 15px; }
+            .header-contact { width: 100%; text-align: center; margin-top: 15px; border-top: 1px solid #eee; padding-top: 15px; align-items: center; }
             .search-box { max-width: 100%; }
             .detail-flex { gap: 30px; }
         }
@@ -159,7 +162,9 @@
             </div>
             <div class="header-contact">
                 <span class="phone"><i class="fa fa-phone-alt" style="color:var(--accent); margin-right:8px;"></i> 0850 840 77 28</span>
-                <div class="info-text">Hızlı Destek & Sipariş Hattı</div>
+                <a href="https://wa.me/908508407728" target="_blank" class="header-wa-btn">
+                    <i class="fab fa-whatsapp"></i> WhatsApp Destek
+                </a>
             </div>
         </div>
     </header>
