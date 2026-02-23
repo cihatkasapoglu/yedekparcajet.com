@@ -201,7 +201,7 @@
                         
                         <div class="shipping-note">
                             <i class="fa fa-truck-fast"></i> 
-                            <div>Ankara merkezimizde bulunan yedek parçalar aynı gün kargo yapılır. Konya, Adana, İstanbul ve diğer şehirlerdeki tedarik depolarda bulunan ürünler 1-5 iş günü içerisinde kargo yapılır.</div>
+                            <div>Ankara merkezimizde bulunan yedek parçalar aynı gün kargo yapılır. Konya, Adana, İstanbul ve diğer şehirlerdeki tedarik depolarda bulunan ürünler 1-5 iş günü içerisinde kargo yapılır. Sitemizde bulunan OEM kodları ve görseller sadece referans amaçlıdır.</div>
                         </div>
 
                         <a id="d-whatsapp" href="#" target="_blank" class="btn-wa">
@@ -294,59 +294,47 @@
 
         // --- 2. ÜRÜN EKLEME ALANI ---
         const products = [
+          Tamamdır Cihat Bey, ürün isimlerinin (title) sonuna görsel isimlerinin başındaki orijinal kodları (OEM) ekleyerek güncelledim.
+
+Böylece müşterileriniz arama çubuğuna direkt bu kodları yazdığında da ürünleri kolayca bulabilecek. Güncel ürün listeniz:
+
+JavaScript
+        const products = [
             {
                 id: 1001,
-                title: "Tofaş Doğan Şahin Kartal Sol Ön Çamurluk",
-                category: "DOĞAN",
-                img: "tofas-sol-camurluk.jpg",
-                desc: "Tofaş Doğan, Şahin ve Kartal uyumlu sol ön kaporta çamurluk sacı. Montaja hazır yedek parçadır.",
-                seoTitle: "Tofaş Doğan Şahin Sol Çamurluk | Yedek Parça Jet",
-                keywords: "tofaş yedek parça, şahin sol çamurluk, doğan kaporta"
+                title: "Fiat Egea Dış Sağ Stop (Duylu) 2015-2024 - oem kodu: 1842-1503",
+                category: "EGEA",
+                img: "1842-1503-fiat-egea-dis-sag-stop-duylu-2015-2024.jpg",
+                desc: "Fiat Egea 2015-2024 modelleriyle tam uyumlu dış sağ stop lambası. Duylu modeldir. Sıfır üründür, hatasız ve montaja hazır durumdadır.",
+                seoTitle: "Fiat Egea Dış Sağ Stop Duylu Sıfır | Yedek Parça Jet",
+                keywords: "fiat egea sağ stop, egea dış stop lambası, sıfır yedek parça, 2015-2024 egea stop, 1842-1503"
             },
             {
                 id: 1002,
-                title: "Volkswagen Golf 7 Ön Tampon",
-                category: "GOLF",
-                img: "golf7-tampon.jpg",
-                desc: "VW Golf 7 (2013-2016) kasa uyumlu ön tampon. Tırnaklarında kırık yoktur, boyaya hazırdır.",
-                seoTitle: "VW Golf 7 Ön Tampon Çıkma | Yedek Parça Jet",
-                keywords: "golf 7 ön tampon, volkswagen yedek parça, golf tampon"
+                title: "Fiat Egea İç Sol Stop (Duylu) 2015-2024 - oem kodu: 1842-1514",
+                category: "EGEA",
+                img: "1842-1514-fiat-egea-ic-sol-stop-duylu-2015-2024.jpg",
+                desc: "Fiat Egea 2015-2024 bagaj kapağı üzeri iç sol stop lambası. Duylu yapısıyla kolay montaj imkanı sunar. Sıfır kutusunda yedek parçadır.",
+                seoTitle: "Fiat Egea İç Sol Stop Duylu Sıfır | Yedek Parça Jet",
+                keywords: "fiat egea sol iç stop, egea bagaj stop lambası, sıfır egea stop, 2015-2024 egea, 1842-1514"
             },
             {
                 id: 1003,
-                title: "Renault Megane 4 Sağ Far",
-                category: "MEGANE",
-                img: "megane4-far.jpg",
-                desc: "Renault Megane 4 serisi sağ ön far. Mercekli model olup bağlantı noktaları sorunsuzdur.",
-                seoTitle: "Renault Megane 4 Sağ Far | Yedek Parça Jet",
-                keywords: "megane 4 sağ far, renault far, megane aydınlatma"
+                title: "Fiat Egea Ön Tampon (Sis ve Panjur Delikli) 2015-2020 - oem kodu: 1842-2000",
+                category: "EGEA",
+                img: "1842-2000-fiat-egea-on-tampon-sis-panjur-delikli-ceki-demiri-kapakli-2015-2020.jpg",
+                desc: "Fiat Egea 2015-2020 arası modeller için sis farı ve panjur delikli ön tampon. Çeki demiri kapağı üzerindedir. Sıfır ve boyaya hazır üründür.",
+                seoTitle: "Fiat Egea Ön Tampon Sis Delikli Sıfır | Yedek Parça Jet",
+                keywords: "fiat egea ön tampon, egea sis delikli tampon, sıfır egea tampon, 2015-2020 egea ön tampon, 1842-2000"
             },
             {
                 id: 1004,
-                title: "Toyota Corolla Ön Panel",
-                category: "COROLLA",
-                img: "corolla-panel.jpg",
-                desc: "Toyota Corolla 2019 ve üzeri modellerle uyumlu temiz çıkma ön panel.",
-                seoTitle: "Toyota Corolla Ön Panel | Yedek Parça Jet",
-                keywords: "toyota corolla ön panel, corolla çıkma parça"
-            },
-            {
-                id: 1005,
-                title: "Fiat Egea Arka Tampon",
+                title: "Fiat Egea Ön Tampon Takviyesiz (Sis ve Panjur Delikli) 2015-2020 - oem kodu: 1842-2001",
                 category: "EGEA",
-                img: "egea-arka-tampon.jpg",
-                desc: "Fiat Egea Sedan araçlarla birebir uyumlu arka tampon gövdesi.",
-                seoTitle: "Fiat Egea Arka Tampon | Yedek Parça Jet",
-                keywords: "fiat egea arka tampon, egea kaporta, egea çıkma parça"
-            },
-            {
-                id: 1006,
-                title: "Ford Transit Connect Arka Kapı Kilit Motoru",
-                category: "TRANSİT CONNECT",
-                img: "transit-connect-kilit.jpg",
-                desc: "Ford Transit Connect arka kapı kilit mekanizması ve motoru. Elektronik testi yapılmıştır.",
-                seoTitle: "Ford Transit Connect Kilit Motoru | Yedek Parça Jet",
-                keywords: "transit connect kilit, ford yedek parça, kilit motoru"
+                img: "1842-2001-fiat-egea-on-tampon-takviyesiz-sis-panjur-delikli-ceki-demiri-kapakli-2015-2020.jpg",
+                desc: "Fiat Egea 2015-2020 modelleriyle uyumlu takviyesiz ön tampon gövdesi. Sis ve panjur yuvaları açıktır, çeki demiri kapaklıdır. Sıfır kaporta malzemesidir.",
+                seoTitle: "Fiat Egea Ön Tampon Takviyesiz Sıfır | Yedek Parça Jet",
+                keywords: "fiat egea takviyesiz tampon, egea ön tampon, sıfır egea kaporta, egea tampon kapağı, 1842-2001"
             }
         ];
 
