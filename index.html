@@ -10,13 +10,13 @@
     
     <style>
         :root {
-            var(--primary): #002b5e;
-            var(--accent): #e63946;
-            var(--light): #f4f6f9;
-            var(--whatsapp): #25D366;
-            var(--border): #e0e0e0;
-            var(--card-shadow): 0 4px 15px rgba(0,0,0,0.04);
-            var(--hover-shadow): 0 12px 25px rgba(0,0,0,0.1);
+            --primary: #002b5e;
+            --accent: #e63946;
+            --light: #f4f6f9;
+            --whatsapp: #25D366;
+            --border: #e0e0e0;
+            --card-shadow: 0 4px 15px rgba(0,0,0,0.04);
+            --hover-shadow: 0 12px 25px rgba(0,0,0,0.1);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, sans-serif; }
@@ -71,7 +71,7 @@
         .section-title { font-size: 1.6rem; border-left: 6px solid #e63946; padding-left: 15px; margin-bottom: 30px; color: #002b5e; font-weight: 800; display: flex; align-items: center; }
         
         .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 25px; }
-        .card { background: #fff; border: 1px solid #e0e0e0; border-radius: 12px; overflow: hidden; transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); cursor: pointer; display: flex; flex-direction: column; box-shadow: 0 4px 15px rgba(0,0,0,0.04); position: relative; top: 0; }
+        .card { background: #fff; border: 1px solid #e0e0e0; border-radius: 12px; overflow: hidden; transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); cursor: pointer; display: flex; flex-direction: column; box-shadow: 0 4px 15px rgba(0,0,0,0.04); position: relative; top: 0; text-decoration: none; color: inherit; }
         .card:hover { transform: translateY(-8px); box-shadow: 0 12px 25px rgba(0,0,0,0.1); border-color: #ccc; }
         .card-img { height: 220px; background: #fff; border-bottom: 1px solid #f4f4f4; padding: 15px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
         .card-img img { max-width: 100%; max-height: 100%; object-fit: contain; transition: transform 0.5s; }
@@ -141,7 +141,7 @@
     <header>
         <div class="container flex-between">
             <div class="logo">
-                <a href="#" onclick="showVitrin()">
+                <a href="#" onclick="showVitrin(); return false;">
                     <img src="yedek-parca-jet-com.jpg" alt="Yedek Parça Jet" onerror="this.src='https://via.placeholder.com/300x90?text=YEDEK+PARCA+JET'">
                 </a>
             </div>
@@ -339,8 +339,9 @@
             }
 
             items.forEach(p => {
+                // SEO GÜNCELLEMESİ: div yerine gerçek link olan <a> etiketi eklendi
                 grid.innerHTML += `
-                    <div class="card" onclick="openProduct(${p.id})">
+                    <a href="?id=${p.id}" class="card" onclick="event.preventDefault(); openProduct(${p.id})">
                         <div class="card-img">
                             <img src="${p.img}" alt="${p.title}" onerror="this.src='https://via.placeholder.com/300x200?text=YEDEK+PARCA+JET'">
                         </div>
@@ -351,7 +352,7 @@
                             </div>
                             <div class="btn-action">Detayları İncele</div>
                         </div>
-                    </div>
+                    </a>
                 `;
             });
         }
@@ -390,6 +391,9 @@
             const p = products.find(x => x.id === id);
             if(!p) return;
 
+            // SEO GÜNCELLEMESİ: Adres çubuğunu ürüne özel link ile değiştir
+            window.history.pushState({id: id}, p.seoTitle, "?id=" + id);
+
             document.getElementById('list-view').style.display = 'none';
             document.getElementById('product-detail-view').style.display = 'block';
             window.scrollTo({top: 0, behavior: 'smooth'});
@@ -415,6 +419,9 @@
         }
 
         function closeProduct() {
+            // SEO GÜNCELLEMESİ: Adres çubuğunu ana sayfa haline geri döndür
+            window.history.pushState({}, "Yedek Parça Jet", window.location.pathname);
+            
             document.getElementById('product-detail-view').style.display = 'none';
             document.getElementById('list-view').style.display = 'block';
             document.title = "Yedek Parça Jet | Tüm Markalar, Binlerce Yedek Parça";
@@ -451,8 +458,26 @@
 
         window.onload = function() {
             buildMenu();
-            showVitrin();
             generateSEOData();
+
+            // SEO GÜNCELLEMESİ: Sayfa ilk açıldığında linkte "?id=1018" gibi bir ürün kodu var mı kontrol et
+            const urlParams = new URLSearchParams(window.location.search);
+            const urunId = urlParams.get('id');
+
+            if (urunId) {
+                openProduct(parseInt(urunId));
+            } else {
+                showVitrin();
+            }
+        };
+        
+        // Tarayıcının geri/ileri tuşlarına basıldığında ürünleri aç/kapat
+        window.onpopstate = function(event) {
+            if (event.state && event.state.id) {
+                openProduct(event.state.id);
+            } else {
+                closeProduct();
+            }
         };
     </script>
 </body>
