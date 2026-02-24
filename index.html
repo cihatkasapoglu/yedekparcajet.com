@@ -10,32 +10,28 @@
     
     <style>
         :root {
-            /* Yeni Renk Paleti: Lacivert, Beyaz ve Kırmızı */
-            --primary: #002b5e; /* Koyu Lacivert - Güven verir */
-            --accent: #e63946;  /* Canlı Kırmızı - Dikkat çeker */
-            --light: #f4f6f9;
-            --whatsapp: #25D366;
-            --border: #e0e0e0;
-            --card-shadow: 0 4px 15px rgba(0,0,0,0.04);
-            --hover-shadow: 0 12px 25px rgba(0,0,0,0.1);
+            var(--primary): #002b5e;
+            var(--accent): #e63946;
+            var(--light): #f4f6f9;
+            var(--whatsapp): #25D366;
+            var(--border): #e0e0e0;
+            var(--card-shadow): 0 4px 15px rgba(0,0,0,0.04);
+            var(--hover-shadow): 0 12px 25px rgba(0,0,0,0.1);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, sans-serif; }
-        body { background-color: var(--light); color: #333; }
+        body { background-color: #f4f6f9; color: #333; }
         a { text-decoration: none; color: inherit; }
 
-        /* ÖZEL KAYDIRMA ÇUBUĞU */
         ::-webkit-scrollbar { width: 6px; }
         ::-webkit-scrollbar-track { background: #f1f1f1; }
         ::-webkit-scrollbar-thumb { background: #ccc; border-radius: 10px; }
-        ::-webkit-scrollbar-thumb:hover { background: var(--primary); }
+        ::-webkit-scrollbar-thumb:hover { background: #002b5e; }
 
-        /* ÜST BİLGİ ŞERİDİ (Okunabilirlik artırıldı) */
-        .top-bar { background: var(--primary); color: #fff; padding: 12px 0; font-size: 0.9rem; text-align: center; letter-spacing: 0.5px; }
-        .top-bar span { font-weight: 800; background: var(--accent); color: #fff; padding: 4px 10px; border-radius: 4px; margin-left: 5px; display: inline-block; }
+        .top-bar { background: #002b5e; color: #fff; padding: 12px 0; font-size: 0.9rem; text-align: center; letter-spacing: 0.5px; }
+        .top-bar span { font-weight: 800; background: #e63946; color: #fff; padding: 4px 10px; border-radius: 4px; margin-left: 5px; display: inline-block; }
 
-        /* HEADER */
-        header { background: #fff; padding: 15px 0; border-bottom: 4px solid var(--accent); position: sticky; top:0; z-index: 1000; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+        header { background: #fff; padding: 15px 0; border-bottom: 4px solid #e63946; position: sticky; top:0; z-index: 1000; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
         .container { max-width: 1350px; margin: 0 auto; padding: 0 15px; }
         .flex-between { display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; }
         
@@ -43,75 +39,69 @@
         .logo img:hover { transform: scale(1.02); }
         
         .search-box { flex: 1; max-width: 550px; position: relative; }
-        .search-box input { width: 100%; padding: 14px 20px 14px 45px; border: 2px solid var(--border); border-radius: 8px; outline: none; font-size: 1rem; transition: all 0.3s; background-color: #fdfdfd; }
-        .search-box input:focus { border-color: var(--primary); background-color: #fff; box-shadow: 0 0 0 3px rgba(0, 43, 94, 0.1); }
+        .search-box input { width: 100%; padding: 14px 20px 14px 45px; border: 2px solid #e0e0e0; border-radius: 8px; outline: none; font-size: 1rem; transition: all 0.3s; background-color: #fdfdfd; }
+        .search-box input:focus { border-color: #002b5e; background-color: #fff; box-shadow: 0 0 0 3px rgba(0, 43, 94, 0.1); }
         .search-box i { position: absolute; left: 18px; top: 50%; transform: translateY(-50%); color: #888; font-size: 1.1rem; }
 
-        /* HEADER İLETİŞİM VE YENİ WHATSAPP BUTONU */
         .header-contact { text-align: right; display: flex; flex-direction: column; align-items: flex-end; }
-        .header-contact .phone { font-weight: 800; font-size: 1.3rem; color: var(--primary); display: block; letter-spacing: 0.5px; }
-        .header-wa-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: var(--whatsapp); color: #fff; padding: 8px 15px; border-radius: 6px; font-weight: 700; font-size: 0.95rem; margin-top: 6px; transition: 0.3s; box-shadow: 0 3px 8px rgba(37,211,102,0.3); }
+        .header-contact .phone { font-weight: 800; font-size: 1.3rem; color: #002b5e; display: block; letter-spacing: 0.5px; }
+        .header-wa-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: #25D366; color: #fff; padding: 8px 15px; border-radius: 6px; font-weight: 700; font-size: 0.95rem; margin-top: 6px; transition: 0.3s; box-shadow: 0 3px 8px rgba(37,211,102,0.3); }
         .header-wa-btn:hover { background: #20b958; transform: translateY(-2px); box-shadow: 0 5px 12px rgba(37,211,102,0.4); }
 
-        /* ANA DÜZEN */
         .main-layout { display: flex; margin: 40px auto; gap: 40px; align-items: flex-start; }
         
-        /* MOBİL MENÜ BUTONU */
-        .mobile-filter-toggle { display: none; width: 100%; padding: 15px; background: var(--primary); color: #fff; border: none; border-radius: 8px; font-weight: 700; font-size: 1rem; cursor: pointer; margin-bottom: 20px; text-align: center; }
+        .mobile-filter-toggle { display: none; width: 100%; padding: 15px; background: #002b5e; color: #fff; border: none; border-radius: 8px; font-weight: 700; font-size: 1rem; cursor: pointer; margin-bottom: 20px; text-align: center; }
         
-        /* SOL MENÜ */
-        aside { flex: 0 0 300px; background: #fff; border: 1px solid var(--border); border-radius: 10px; position: sticky; top: 150px; max-height: calc(100vh - 170px); display: flex; flex-direction: column; box-shadow: var(--card-shadow); overflow: hidden; }
-        .sidebar-title { background: var(--primary); color: #fff; padding: 18px; text-align: center; font-weight: 800; font-size: 1.05rem; letter-spacing: 1px; }
+        aside { flex: 0 0 300px; background: #fff; border: 1px solid #e0e0e0; border-radius: 10px; position: sticky; top: 150px; max-height: calc(100vh - 170px); display: flex; flex-direction: column; box-shadow: 0 4px 15px rgba(0,0,0,0.04); overflow: hidden; }
+        .sidebar-title { background: #002b5e; color: #fff; padding: 18px; text-align: center; font-weight: 800; font-size: 1.05rem; letter-spacing: 1px; }
         
         .menu-container { overflow-y: auto; flex: 1; }
         .accordion-btn { width: 100%; text-align: left; padding: 15px 20px; background: #fff; border: none; border-bottom: 1px solid #f4f4f4; font-weight: 700; cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: all 0.2s; font-size: 0.95rem; color: #333; }
-        .accordion-btn:hover { color: var(--accent); background: #fafafa; padding-left: 25px; }
-        .accordion-btn.active { color: var(--accent); border-left: 4px solid var(--accent); background: #fcfcfc; }
+        .accordion-btn:hover { color: #e63946; background: #fafafa; padding-left: 25px; }
+        .accordion-btn.active { color: #e63946; border-left: 4px solid #e63946; background: #fcfcfc; }
         
         .panel { display: none; background-color: #fafafa; border-bottom: 1px solid #eee; }
         .panel button { width: 100%; text-align: left; padding: 12px 15px 12px 35px; background: none; border: none; font-size: 0.9rem; color: #555; cursor: pointer; transition: 0.2s; font-weight: 500; position: relative; }
         .panel button::before { content: "•"; position: absolute; left: 20px; color: #ccc; transition: 0.2s; }
-        .panel button:hover { color: var(--primary); background: #f0f0f0; padding-left: 40px; }
-        .panel button:hover::before { color: var(--primary); left: 25px; }
+        .panel button:hover { color: #002b5e; background: #f0f0f0; padding-left: 40px; }
+        .panel button:hover::before { color: #002b5e; left: 25px; }
         .sub-header { padding: 8px 15px 8px 25px; font-size: 0.8rem; font-weight: 800; color: #888; background: #eee; margin-top: 5px; }
 
-        /* ÜRÜN LİSTESİ */
-        .products-section { flex: 1; }
-        .section-title { font-size: 1.6rem; border-left: 6px solid var(--accent); padding-left: 15px; margin-bottom: 30px; color: var(--primary); font-weight: 800; display: flex; align-items: center; }
+        .products-section { flex: 1; width: 100%; }
+        .section-title { font-size: 1.6rem; border-left: 6px solid #e63946; padding-left: 15px; margin-bottom: 30px; color: #002b5e; font-weight: 800; display: flex; align-items: center; }
         
         .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 25px; }
-        .card { background: #fff; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); cursor: pointer; display: flex; flex-direction: column; box-shadow: var(--card-shadow); position: relative; top: 0; }
-        .card:hover { transform: translateY(-8px); box-shadow: var(--hover-shadow); border-color: #ccc; }
+        .card { background: #fff; border: 1px solid #e0e0e0; border-radius: 12px; overflow: hidden; transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); cursor: pointer; display: flex; flex-direction: column; box-shadow: 0 4px 15px rgba(0,0,0,0.04); position: relative; top: 0; }
+        .card:hover { transform: translateY(-8px); box-shadow: 0 12px 25px rgba(0,0,0,0.1); border-color: #ccc; }
         .card-img { height: 220px; background: #fff; border-bottom: 1px solid #f4f4f4; padding: 15px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
         .card-img img { max-width: 100%; max-height: 100%; object-fit: contain; transition: transform 0.5s; }
         .card:hover .card-img img { transform: scale(1.05); }
         .card-body { padding: 20px; flex: 1; display: flex; flex-direction: column; justify-content: space-between; }
-        .c-cat { font-size: 0.8rem; color: var(--accent); font-weight: 800; margin-bottom: 8px; letter-spacing: 0.5px; }
+        .c-cat { font-size: 0.8rem; color: #e63946; font-weight: 800; margin-bottom: 8px; letter-spacing: 0.5px; }
         .c-title { font-size: 1.1rem; font-weight: 700; margin-bottom: 20px; line-height: 1.4; height: 48px; overflow: hidden; color: #222; }
         
-        .btn-action { display: block; width: 100%; padding: 12px; background: var(--primary); color: #fff; text-align: center; border-radius: 8px; font-weight: 700; font-size: 0.95rem; transition: background 0.3s; }
-        .card:hover .btn-action { background: var(--accent); }
+        .btn-action { display: block; width: 100%; padding: 12px; background: #002b5e; color: #fff; text-align: center; border-radius: 8px; font-weight: 700; font-size: 0.95rem; transition: background 0.3s; }
+        .card:hover .btn-action { background: #e63946; }
 
-        /* ÜRÜN DETAYI */
-        #product-detail-view { display: none; background: #fff; padding: 40px; border-radius: 12px; border: 1px solid var(--border); box-shadow: var(--card-shadow); animation: fadeIn 0.4s ease; }
+        #product-detail-view { display: none; background: #fff; padding: 40px; border-radius: 12px; border: 1px solid #e0e0e0; box-shadow: 0 4px 15px rgba(0,0,0,0.04); animation: fadeIn 0.4s ease; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
         
         .btn-back { background: #f0f0f0; color: #333; border: none; padding: 12px 25px; border-radius: 8px; cursor: pointer; margin-bottom: 30px; font-weight: 800; transition: all 0.2s; display: inline-flex; align-items: center; gap: 8px; }
-        .btn-back:hover { background: var(--primary); color: #fff; }
+        .btn-back:hover { background: #002b5e; color: #fff; }
         
         .detail-flex { display: flex; gap: 50px; flex-wrap: wrap; }
         .detail-img-box { flex: 1; min-width: 320px; background: #fff; padding: 30px; border: 1px solid #eee; border-radius: 12px; text-align: center; display: flex; align-items: center; justify-content: center; }
         .detail-img-box img { max-width: 100%; max-height: 450px; object-fit: contain; }
         
         .detail-info { flex: 1.2; min-width: 320px; display: flex; flex-direction: column; justify-content: center; }
-        .d-cat { color: #fff; background: var(--accent); padding: 5px 12px; border-radius: 4px; font-weight: 800; margin-bottom: 15px; font-size: 0.85rem; display: inline-block; width: fit-content; }
-        .d-title { font-size: 2.2rem; color: var(--primary); margin-bottom: 25px; line-height: 1.2; font-weight: 800; }
-        .d-desc { color: #444; line-height: 1.7; background: #f9fbfd; padding: 25px; border: 1px solid #edf2f7; border-left: 4px solid var(--primary); margin-bottom: 25px; font-size: 1.05rem; border-radius: 0 8px 8px 0; }
+        .d-cat { color: #fff; background: #e63946; padding: 5px 12px; border-radius: 4px; font-weight: 800; margin-bottom: 15px; font-size: 0.85rem; display: inline-block; width: fit-content; }
+        .d-title { font-size: 2.2rem; color: #002b5e; margin-bottom: 25px; line-height: 1.2; font-weight: 800; }
+        .d-desc { color: #444; line-height: 1.7; background: #f9fbfd; padding: 25px; border: 1px solid #edf2f7; border-left: 4px solid #002b5e; margin-bottom: 25px; font-size: 1.05rem; border-radius: 0 8px 8px 0; }
         
         .shipping-note { background: #e8f5e9; color: #2e7d32; padding: 15px 20px; border-radius: 8px; font-weight: 700; font-size: 0.95rem; margin-bottom: 30px; border: 1px solid #c8e6c9; display: flex; align-items: center; gap: 15px; }
         .shipping-note i { font-size: 1.5rem; }
         
-        .btn-wa { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; padding: 18px; background: var(--whatsapp); color: #fff; border-radius: 8px; font-weight: 800; font-size: 1.2rem; transition: all 0.3s; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3); animation: pulse 2s infinite; }
+        .btn-wa { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; padding: 18px; background: #25D366; color: #fff; border-radius: 8px; font-weight: 800; font-size: 1.2rem; transition: all 0.3s; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3); animation: pulse 2s infinite; }
         .btn-wa:hover { background: #20b958; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4); animation: none; }
         
         @keyframes pulse {
@@ -120,14 +110,13 @@
             100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
         }
 
-        /* FOOTER */
-        footer { background: var(--primary); color: #bbb; padding: 70px 0 30px 0; margin-top: 80px; border-top: 6px solid var(--accent); }
+        footer { background: #002b5e; color: #bbb; padding: 70px 0 30px 0; margin-top: 80px; border-top: 6px solid #e63946; }
         .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; margin-bottom: 50px; }
-        .f-title { color: #fff; font-weight: 800; font-size: 1.25rem; margin-bottom: 25px; display: inline-block; border-bottom: 2px solid var(--accent); padding-bottom: 5px; }
+        .f-title { color: #fff; font-weight: 800; font-size: 1.25rem; margin-bottom: 25px; display: inline-block; border-bottom: 2px solid #e63946; padding-bottom: 5px; }
         .f-text { margin-bottom: 15px; font-size: 0.95rem; line-height: 1.7; display: flex; align-items: flex-start; gap: 10px; }
-        .f-text i { color: var(--accent); margin-top: 4px; }
+        .f-text i { color: #e63946; margin-top: 4px; }
         .f-socials a { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; background: rgba(255,255,255,0.1); border-radius: 50%; margin-right: 10px; font-size: 1.2rem; color: #fff; transition: all 0.3s; }
-        .f-socials a:hover { background: var(--accent); transform: translateY(-3px); }
+        .f-socials a:hover { background: #e63946; transform: translateY(-3px); }
 
         @media (max-width: 900px) {
             .main-layout { flex-direction: column; margin: 20px auto; gap: 20px; }
@@ -161,7 +150,7 @@
                 <input type="text" id="searchInput" placeholder="Parça adı, ürün kodu veya araç modeli arayın..." onkeyup="searchProduct()">
             </div>
             <div class="header-contact">
-                <span class="phone"><i class="fa fa-phone-alt" style="color:var(--accent); margin-right:8px;"></i> 0850 840 77 28</span>
+                <span class="phone"><i class="fa fa-phone-alt" style="color:#e63946; margin-right:8px;"></i> 0850 840 77 28</span>
                 <a href="https://wa.me/908508407728" target="_blank" class="header-wa-btn">
                     <i class="fab fa-whatsapp"></i> WhatsApp Destek
                 </a>
@@ -177,15 +166,13 @@
 
         <aside id="main-sidebar">
             <div class="sidebar-title">ARAÇ MARKA & MODELLERİ</div>
-            <div class="menu-container" id="menu-container">
-                </div>
+            <div class="menu-container" id="menu-container"></div>
         </aside>
 
         <section class="products-section">
             <div id="list-view">
                 <h2 id="category-title" class="section-title">Vitrin Ürünleri</h2>
-                <div id="product-grid" class="grid">
-                    </div>
+                <div id="product-grid" class="grid"></div>
             </div>
 
             <div id="product-detail-view">
@@ -223,7 +210,7 @@
                 </div>
                 <div>
                     <h3 class="f-title">İletişim & Konum</h3>
-                    <p class="f-text"><i class="fa fa-map-marker-alt"></i> <span>Serhat, 1126. Cadde Ayyıldız Sanayi Sitesi No:14/A, 06200 Yenimahalle/Ankara</span></p>
+                    <p class="f-text"><i class="fa fa-map-marker-alt"></i> <span>Serhat Mah. 1126. Cad. Ayyıldız Sanayi Sitesi No: 14/A Ostim / Ankara</span></p>
                     <p class="f-text"><i class="fa fa-phone"></i> <span>0850 840 77 28</span></p>
                 </div>
                 <div>
@@ -241,7 +228,6 @@
     </footer>
 
     <script>
-        // --- 1. DEV ARAÇ LİSTESİ ---
         const menuData = {
             "AUDI": ["A1", "A100", "A3", "A4", "A5", "A6", "A7", "A8", "A80", "E TRON", "Q2", "Q3", "Q5", "Q7", "Q8", "TT"],
             "BMW": {
@@ -251,234 +237,59 @@
                 "5 SERİSİ": ["E34", "E39", "E60", "F10", "G30"],
                 "7 SERİSİ": ["E32", "E38", "E65", "E66", "F01", "G11"],
                 "X1 SERİSİ": ["E84", "F48", "U11"],
-                "X2 SERİSİ": [],
                 "X3 SERİSİ": ["E83", "F25", "G01"],
-                "X5 SERİSİ": ["E53", "E70", "F15"],
-                "X6 SERİSİ": []
+                "X5 SERİSİ": ["E53", "E70", "F15"]
             },
-            "CHEVROLET": ["AVALANCHE", "AVEO", "CAPTİVA", "CRUZE", "EPİCA", "HHR", "KALOS", "LACETTİ", "SİLVERADO", "SPARK", "TAHOE"],
-            "CHRYSLER": ["300C", "COUNTRY", "NEON", "PACİFİCA", "SEBRİNG", "STRATUS"],
-            "CİTROEN": ["AX", "BERLİNGO", "C ELYSEE", "C1", "C2", "C3", "C3 AİRCROSS", "C3 PİCASSO", "C4", "C4 CACTUS", "C4 PİCASSO", "C5", "C5 AİRCROSS", "JUMPER", "JUMPY", "NEMO", "SAXO", "XSARA", "XSARA PİCASSO"],
-            "DACİA": ["DOKKER", "DUSTER", "JOGGER", "LODGY", "LOGAN", "SANDERO", "SANDERO STEPWAY", "SOLENZA"],
-            "DAEWOO": ["LANOS", "MATİZ", "NEXİA", "NUBİRA"],
-            "DAİHATSU": ["HİJET", "SİRİON", "TERİOS"],
-            "DODGE": ["DURANGO", "RAM", "RAMCHARGER"],
-            "FİAT": ["500", "500L", "500X", "ALBEA", "BRAVA", "BRAVO", "DOBLO", "DUCATO", "EGEA", "FİORİNO", "FULLBACK", "GRANDE PUNTO", "İDEA", "LİNEA", "MAREA", "PALİO", "PANDA", "PRATİCO", "PUNTO", "SCUDO", "SİENA", "STİLO", "TEMPRA", "TİPO", "UNO"],
-            "FORD": ["B MAX", "CUSTOM", "ESCORT", "EXPLORER", "FİESTA", "FOCUS", "FOCUS C MAX", "FUSİON", "KA", "KUGA", "MONDEO", "MUSTANG", "PUMA", "RANGER", "S MAX", "TOURNEO CONNECT", "TOURNEO COURİER", "TRANSİT", "TRANSİT CONNECT"],
+            "CHEVROLET": ["AVALANCHE", "AVEO", "CAPTİVA", "CRUZE", "EPİCA", "KALOS", "LACETTİ", "SPARK"],
+            "CİTROEN": ["BERLİNGO", "C ELYSEE", "C3", "C3 AİRCROSS", "C4", "C4 CACTUS", "C5", "C5 AİRCROSS", "JUMPER", "NEMO"],
+            "DACİA": ["DOKKER", "DUSTER", "JOGGER", "LODGY", "LOGAN", "SANDERO", "SANDERO STEPWAY"],
+            "FİAT": ["500", "500L", "500X", "ALBEA", "DOBLO", "DUCATO", "EGEA", "FİORİNO", "LİNEA", "PALİO", "PANDA", "PUNTO", "TİPO"],
+            "FORD": ["CUSTOM", "FİESTA", "FOCUS", "KUGA", "MONDEO", "PUMA", "RANGER", "TOURNEO COURİER", "TRANSİT"],
             "HONDA": ["ACCORD", "CİTY", "CİVİC", "CRV", "JAZZ"],
-            "HYUNDAİ": ["ACCENT", "ATOS", "BAYON", "ELANTRA", "EXCELL", "GETZ", "H1", "H100", "İ10", "İ20", "İ30", "İX35", "KONA", "MATRİX", "SANTA FE", "SONATA", "STAREX", "TUCSON"],
-            "ISUZU": ["D MAX", "NKR", "NLR", "NPR"],
-            "İVECO": ["DAİLY"],
-            "JEEP": ["CHEROKEE", "COMPASS", "RENEGADE"],
-            "KİA": ["BESTA", "BONGO", "CEED", "CERATO", "NİRO", "OPTİMA", "PİCANTO", "PREGİO", "RİO", "SEPHİA", "SORENTO", "SOUL", "SPORTAGE", "STONİC", "XCEED"],
-            "MAZDA": ["MAZDA 2", "MAZDA 3", "MAZDA 323", "MAZDA 6", "MAZDA 626", "B2200", "B2500", "CX3", "E2200"],
-            "MERCEDES": ["190", "A CLASS", "B CLASS", "C CLASS", "CİTAN", "CLA", "E CLASS", "GLA CLASS", "GLC CLASS", "GLK", "ML CLASS", "S CLASS", "SPRİNTER", "VİANO", "VİTO"],
-            "MİNİ": ["COOPER"],
-            "MİTSUBİSHİ": ["ASX", "CANTER", "CARİSMA", "COLT", "GALANT", "L200", "L300", "LANCER", "OUTLANDER", "PAJERO"],
-            "NİSSAN": ["ALMERA", "ALTİMA", "BLUEBİRD", "JUKE", "MAXİMA", "MİCRA", "MURANO", "NOTE", "PATHFİNDER", "PATROL", "PİCK UP", "PRİMERA", "QASHQAİ", "SKYSTAR", "SUNNY", "X TRAİL"],
-            "OPEL": ["ASTRA", "COMBO", "CORSA", "CROSSLAND", "CROSSLAND X", "GRANDLAND X", "İNSİGNİA", "MERİVA", "MOKKA", "MOVANO", "OMEGA", "VECTRA", "VİVARO", "ZAFİRA"],
-            "PEUGEOT": ["106", "107", "2008", "205", "206", "207", "208", "3008", "301", "306", "307", "308", "405", "406", "407", "408", "5008", "508", "BİPPER", "BOXER", "EXPERT", "PARTNER", "RİFTER"],
-            "PORSCHE": ["CAYENNE", "MACAN"],
-            "RENAULT": ["CAPTUR", "CLİO", "DUSTER", "EXPRESS", "FLUENCE", "KADJAR", "KANGOO", "KALEOS", "LAGUNA", "LATİTUDE", "MASTER", "MEGANE", "MODUS", "R11 FLASH", "R12 TOROS", "R19 EUROPA", "R21 MANAGER", "R9 BROADWAY", "SCENİC", "SYMBOL", "TAİLANT", "TALİSMAN", "TRAFİC", "TWİNGO"],
-            "SEAT": ["ALTEA", "ARONA", "ATECA", "CORDOBA", "İBİZA", "İNCA", "LEON", "TOLEDO"],
-            "SKODA": ["CİTİGO", "FABİA", "FAVORİT", "FELİCİA", "KAMİQ", "KAROQ", "KODİAQ", "OCTAVİA", "RAPİD", "ROOMSTER", "SCALA", "SUPERB", "YETİ"],
-            "SUBARU": ["FORESTER", "İMPREZA", "LEGACY"],
-            "SUZUKİ": ["ALTO", "BALENO", "CARRY", "GRAND VİTARA", "LİANA", "SWİFT", "VİTARA"],
-            "TESLA": ["MODEL Y"],
-            "TOGG": ["T10X"],
-            "TOYOTA": ["AURİS", "AVENSİS", "CAMRY", "CARİNA", "CHR", "COROLLA", "CORONA", "HİACE", "HİLUX", "LANDCRUİSER", "PROACE CİTY", "PROACE VERSO", "RAV4", "YARİS", "YARİS CROSS"],
-            "VOLKSWAGEN": ["AMAROK", "ARTEON", "BEETLE", "BORA", "CADDY", "CARAVELLE", "CC", "CRAFTER", "GOLF", "JETTA", "LUPO", "PASSAT", "POLO", "SCİROCCO", "SHARAN", "TİGUAN", "TOUAREG", "TOURAN", "TRANSPORTER", "VENTO"],
-            "VOLVO": ["S40", "S60", "S70", "S80", "V40", "V70", "XC60", "XC90"],
-            "TOFAŞ": ["DOĞAN", "ŞAHİN", "KARTAL"]
+            "HYUNDAİ": ["ACCENT", "BAYON", "ELANTRA", "GETZ", "H100", "İ10", "İ20", "İ30", "İX35", "KONA", "TUCSON"],
+            "KİA": ["BONGO", "CEED", "CERATO", "PİCANTO", "RİO", "SORENTO", "SPORTAGE", "STONİC"],
+            "MERCEDES": ["A CLASS", "C CLASS", "CLA", "E CLASS", "GLA CLASS", "SPRİNTER", "VİTO"],
+            "NİSSAN": ["JUKE", "MİCRA", "QASHQAİ", "X TRAİL"],
+            "OPEL": ["ASTRA", "COMBO", "CORSA", "CROSSLAND", "GRANDLAND X", "İNSİGNİA", "MOKKA", "VECTRA"],
+            "PEUGEOT": ["2008", "206", "207", "208", "3008", "301", "308", "5008", "508", "PARTNER", "RİFTER"],
+            "RENAULT": ["CAPTUR", "CLİO", "FLUENCE", "KADJAR", "KANGOO", "MEGANE", "SYMBOL", "TAİLANT", "TALİSMAN", "TRAFİC"],
+            "SEAT": ["ARONA", "ATECA", "İBİZA", "LEON"],
+            "SKODA": ["FABİA", "KAMİQ", "KAROQ", "KODİAQ", "OCTAVİA", "SCALA", "SUPERB"],
+            "TOYOTA": ["AURİS", "COROLLA", "HİLUX", "PROACE CİTY", "RAV4", "YARİS", "YARİS CROSS"],
+            "VOLKSWAGEN": ["AMAROK", "CADDY", "CRAFTER", "GOLF", "JETTA", "PASSAT", "POLO", "TİGUAN", "TRANSPORTER"]
         };
 
-        // --- 2. ÜRÜN EKLEME ALANI ---
         const products = [
-            {
-                id: 1001,
-                title: "Fiat Egea Dış Sağ Stop (Duylu) 2015-2024 - oem kodu: 1842-1503",
-                category: "EGEA",
-                img: "1842-1503-fiat-egea-dis-sag-stop-duylu-2015-2024.jpg",
-                desc: "Fiat Egea 2015-2024 modelleriyle tam uyumlu dış sağ stop lambası. Duylu modeldir. Sıfır üründür, hatasız ve montaja hazır durumdadır.",
-                seoTitle: "Fiat Egea Dış Sağ Stop Duylu Sıfır | Yedek Parça Jet",
-                keywords: "fiat egea sağ stop, egea dış stop lambası, sıfır yedek parça, 2015-2024 egea stop, 1842-1503"
-            },
-            {
-                id: 1002,
-                title: "Fiat Egea İç Sol Stop (Duylu) 2015-2024 - oem kodu: 1842-1514",
-                category: "EGEA",
-                img: "1842-1514-fiat-egea-ic-sol-stop-duylu-2015-2024.jpg",
-                desc: "Fiat Egea 2015-2024 bagaj kapağı üzeri iç sol stop lambası. Duylu yapısıyla kolay montaj imkanı sunar. Sıfır kutusunda yedek parçadır.",
-                seoTitle: "Fiat Egea İç Sol Stop Duylu Sıfır | Yedek Parça Jet",
-                keywords: "fiat egea sol iç stop, egea bagaj stop lambası, sıfır egea stop, 2015-2024 egea, 1842-1514"
-            },
-            {
-                id: 1003,
-                title: "Fiat Egea Ön Tampon (Sis ve Panjur Delikli) 2015-2020 - oem kodu: 1842-2000",
-                category: "EGEA",
-                img: "1842-2000-fiat-egea-on-tampon-sis-panjur-delikli-ceki-demiri-kapakli-2015-2020.jpg",
-                desc: "Fiat Egea 2015-2020 arası modeller için sis farı ve panjur delikli ön tampon. Çeki demiri kapağı üzerindedir. Sıfır ve boyaya hazır üründür.",
-                seoTitle: "Fiat Egea Ön Tampon Sis Delikli Sıfır | Yedek Parça Jet",
-                keywords: "fiat egea ön tampon, egea sis delikli tampon, sıfır egea tampon, 2015-2020 egea ön tampon, 1842-2000"
-            },
-            {
-                id: 1004,
-                title: "Fiat Egea Ön Tampon Takviyesiz (Sis ve Panjur Delikli) 2015-2020 - oem kodu: 1842-2001",
-                category: "EGEA",
-                img: "1842-2001-fiat-egea-on-tampon-takviyesiz-sis-panjur-delikli-ceki-demiri-kapakli-2015-2020.jpg",
-                desc: "Fiat Egea 2015-2020 modelleriyle uyumlu takviyesiz ön tampon gövdesi. Sis ve panjur yuvaları açıktır, çeki demiri kapaklıdır. Sıfır kaporta malzemesidir.",
-                seoTitle: "Fiat Egea Ön Tampon Takviyesiz Sıfır | Yedek Parça Jet",
-                keywords: "fiat egea takviyesiz tampon, egea ön tampon, sıfır egea kaporta, egea tampon kapağı, 1842-2001"
-            },
-            {
-        id: 1005,
-        title: "Fiat Egea İç Sağ Stop Duylu 2015-2024 - oem kodu: 1842-1513",
-        category: "EGEA",
-        img: "1842-1513-fiat-egea-ic-sag-stop-duylu-2015-2024.jpg",
-        desc: "Fiat Egea 2015-2024 modelleriyle uyumlu iç sağ stop lambası. Duylu yapısıyla montaja hazırdır. Sıfır aydınlatma malzemesidir.",
-        seoTitle: "Fiat Egea İç Sağ Stop Duylu Sıfır | Yedek Parça Jet",
-        keywords: "fiat egea sağ stop, egea iç stop lambası, egea stop duylu, 1842-1513, sıfır egea aydınlatma"
-    },
-    {
-        id: 1006,
-        title: "Fiat Egea Sağ Ön Çamurluk Delikli 2015-2024 - oem kodu: 1842-2101",
-        category: "EGEA",
-        img: "1842-2101-fiat-egea-sag-on-camurluk-delikli-2015-2024.jpg",
-        desc: "Fiat Egea 2015-2024 modelleriyle uyumlu sağ ön çamurluk. Sinyal yuvası deliklidir. Sıfır kaporta malzemesidir.",
-        seoTitle: "Fiat Egea Sağ Ön Çamurluk Delikli Sıfır | Yedek Parça Jet",
-        keywords: "fiat egea sağ çamurluk, egea delikli çamurluk, sıfır egea kaporta, 1842-2101, egea sağ ön çamurluk"
-    },
-    {
-        id: 1007,
-        title: "Fiat Egea Cross Ön Panjur Siyah - oem kodu: 1847-2340",
-        category: "EGEA",
-        img: "fiat-egea-cross-on-panjur-siyah-1847-2340.jpg",
-        desc: "Fiat Egea Cross modelleriyle uyumlu siyah renkli ön panjur. Sıfır dış trim ve kaporta malzemesidir.",
-        seoTitle: "Fiat Egea Cross Ön Panjur Siyah Sıfır | Yedek Parça Jet",
-        keywords: "fiat egea cross panjur, egea cross siyah panjur, egea ön panjur, 1847-2340, sıfır egea parçaları"
-    },
-    {
-        id: 1008,
-        title: "Fiat Egea Kaput - oem kodu: 1842-1300",
-        category: "EGEA",
-        img: "fiat-egea-kaput-1842-1300.jpg",
-        desc: "Fiat Egea serisi ile uyumlu motor kaputu. Montaja hazır sıfır kaporta malzemesidir.",
-        seoTitle: "Fiat Egea Motor Kaputu Sıfır | Yedek Parça Jet",
-        keywords: "fiat egea kaput, egea motor kaputu, sıfır egea kaporta, egea ön kaput, 1842-1300"
-    },
-    {
-        id: 1009,
-        title: "Fiat Egea Kaput Menteşesi Sağ Sol - oem kodu: 1842-2355 / 1842-2356",
-        category: "EGEA",
-        img: "fiat-egea-kaput-mentesesi-sag-sol-1842-2355-1842-2356.jpg",
-        desc: "Fiat Egea modelleriyle uyumlu sağ ve sol kaput menteşesi takımı. Sıfır bağlantı malzemesidir.",
-        seoTitle: "Fiat Egea Kaput Menteşesi Sağ Sol Sıfır | Yedek Parça Jet",
-        keywords: "fiat egea kaput menteşesi, egea menteşe sağ sol, egea kaput bağlantısı, 1842-2355, 1842-2356"
-    },
-    {
-        id: 1010,
-        title: "Fiat Egea Ön Panjur Petekleri Siyah - oem kodu: 1842-2345",
-        category: "EGEA",
-        img: "fiat-egea-on-panjur-petekleri-siyah-1842-2345.jpg",
-        desc: "Fiat Egea ön panjur için siyah renkli petek ızgara kısmı. Sıfır dış donanım malzemesidir.",
-        seoTitle: "Fiat Egea Ön Panjur Petekleri Siyah Sıfır | Yedek Parça Jet",
-        keywords: "fiat egea panjur peteği, egea siyah panjur ızgarası, egea ön ızgara, 1842-2345"
-    },
-    {
-        id: 1011,
-        title: "Fiat Egea Sağ Arka Kapı Sacı - oem kodu: 1842-2811",
-        category: "EGEA",
-        img: "fiat-egea-sag-arka-kapi-saci-1842-2811.jpg",
-        desc: "Fiat Egea modelleriyle uyumlu sağ arka kapı sacı. Sıfır kaporta malzemesidir.",
-        seoTitle: "Fiat Egea Sağ Arka Kapı Sacı Sıfır | Yedek Parça Jet",
-        keywords: "fiat egea sağ arka kapı sacı, egea kapı sacı, sıfır egea kaporta, 1842-2811"
-    },
-    {
-        id: 1012,
-        title: "Fiat Egea Sağ Far Elektrikli Motorlu Siyah Nikelajlı - oem kodu: 1842-1001A",
-        category: "EGEA",
-        img: "fiat-egea-sag-far-elektrikli-motorlu-siyah-nikelajli-1842-1001a.jpg",
-        desc: "Fiat Egea uyumlu sağ far donanımı. Elektrikli, motorlu yapıda olup siyah nikelaj detaylarına sahiptir. Sıfır aydınlatma malzemesidir.",
-        seoTitle: "Fiat Egea Sağ Far Elektrikli Nikelajlı Sıfır | Yedek Parça Jet",
-        keywords: "fiat egea sağ far, egea elektrikli far, egea motorlu far siyah nikelajlı, 1842-1001A"
-    },
-    {
-        id: 1013,
-        title: "Fiat Egea Sağ Ön Çamurluk Sinyal ve Dodik Delikli - oem kodu: 1847-2101",
-        category: "EGEA",
-        img: "fiat-egea-sag-on-camurluk-sinyal-ve-dodik-delikli-1847-2101.jpg",
-        desc: "Fiat Egea serisi ile uyumlu sağ ön çamurluk. Sinyal lambası ve dodik bağlantıları için delikleri mevcuttur. Sıfır kaporta malzemesidir.",
-        seoTitle: "Fiat Egea Sağ Ön Çamurluk Dodik Delikli Sıfır | Yedek Parça Jet",
-        keywords: "fiat egea sağ çamurluk sinyal delikli, egea dodik delikli çamurluk, 1847-2101"
-    },
-    {
-        id: 1014,
-        title: "Fiat Egea Sağ Ön Kapı Sacı - oem kodu: 1842-2211",
-        category: "EGEA",
-        img: "fiat-egea-sag-on-kapi-saci-oem-kodu-1842-2211.jpg",
-        desc: "Fiat Egea modelleriyle uyumlu sağ ön kapı sacı. Montaja hazır sıfır kaporta malzemesidir.",
-        seoTitle: "Fiat Egea Sağ Ön Kapı Sacı Sıfır | Yedek Parça Jet",
-        keywords: "fiat egea sağ ön kapı sacı, egea kapı sacı, sıfır egea kaporta yedek parça, 1842-2211"
-    },
-    {
-        id: 1015,
-        title: "Fiat Egea Sol Arka Kapı Sacı - oem kodu: 1842-2812",
-        category: "EGEA",
-        img: "fiat-egea-sol-arka-kapi-saci-1842-2812.jpg",
-        desc: "Fiat Egea modelleriyle uyumlu sol arka kapı sacı. Sıfır kaporta malzemesidir.",
-        seoTitle: "Fiat Egea Sol Arka Kapı Sacı Sıfır | Yedek Parça Jet",
-        keywords: "fiat egea sol arka kapı sacı, egea sol kapı sacı, egea kaporta, 1842-2812"
-    },
-    {
-        id: 1016,
-        title: "Fiat Egea Sol Ayna Elektrikli Isıtmalı - oem kodu: 1842-2994",
-        category: "EGEA",
-        img: "fiat-egea-sol-ayna-elektrikli-isitmali-1842-2994.jpg",
-        desc: "Fiat Egea serisi ile uyumlu sol dikiz aynası. Elektrik ayarlı ve ısıtma özelliklidir. Sıfır yedek parçadır.",
-        seoTitle: "Fiat Egea Sol Ayna Elektrikli Isıtmalı Sıfır | Yedek Parça Jet",
-        keywords: "fiat egea sol ayna, egea elektrikli ayna, egea ısıtmalı sol ayna, 1842-2994"
-    },
-    {
-        id: 1017,
-        title: "Fiat Egea Sol Far Elektrikli Motorlu Siyah Nikelajlı - oem kodu: 1842-1002A",
-        category: "EGEA",
-        img: "fiat-egea-sol-far-elektrikli-motorlu-siyah-nikelajli-1842-1002a.jpg",
-        desc: "Fiat Egea uyumlu sol far donanımı. Elektrik motorlu ve siyah nikelaj detaylıdır. Sıfır aydınlatma malzemesidir.",
-        seoTitle: "Fiat Egea Sol Far Elektrikli Nikelajlı Sıfır | Yedek Parça Jet",
-        keywords: "fiat egea sol far, egea motorlu far, egea siyah nikelajlı far sol, 1842-1002A"
-    },
-    {
-        id: 1018,
-        title: "Fiat Egea Sol Ön Çamurluk Delikli 2015-2024 - oem kodu: 1842-2102",
-        category: "EGEA",
-        img: "fiat-egea-sol-on-camurluk-delikli-2015-2024-oem-kodu-1842-2102.jpg",
-        desc: "Fiat Egea 2015-2024 modelleriyle uyumlu sol ön çamurluk. Sinyal yuvası deliklidir. Sıfır kaporta malzemesidir.",
-        seoTitle: "Fiat Egea Sol Ön Çamurluk Delikli Sıfır | Yedek Parça Jet",
-        keywords: "fiat egea sol çamurluk, egea delikli çamurluk sol, sıfır egea kaporta, 1842-2102"
-    },
-    {
-        id: 1019,
-        title: "Fiat Egea Sol Ön Kapı Sacı - oem kodu: 1842-2212",
-        category: "EGEA",
-        img: "fiat-egea-sol-on-kapi-saci-oem-kodu-1842-2212.jpg",
-        desc: "Fiat Egea modelleriyle uyumlu sol ön kapı sacı. Montaja hazır sıfır kaporta malzemesidir.",
-        seoTitle: "Fiat Egea Sol Ön Kapı Sacı Sıfır | Yedek Parça Jet",
-        keywords: "fiat egea sol ön kapı sacı, egea sol kapı sacı, sıfır egea kaporta, 1842-2212"
-    }
+            { id: 1001, title: "Fiat Egea Dış Sağ Stop (Duylu) 2015-2024 - oem kodu: 1842-1503", category: "EGEA", img: "1842-1503-fiat-egea-dis-sag-stop-duylu-2015-2024.jpg", desc: "Fiat Egea 2015-2024 modelleriyle tam uyumlu dış sağ stop lambası. Duylu modeldir. Sıfır üründür, hatasız ve montaja hazır durumdadır.", seoTitle: "Fiat Egea Dış Sağ Stop Duylu Sıfır | Yedek Parça Jet", keywords: "fiat egea sağ stop, egea dış stop lambası, sıfır yedek parça, 2015-2024 egea stop, 1842-1503" },
+            { id: 1002, title: "Fiat Egea İç Sol Stop (Duylu) 2015-2024 - oem kodu: 1842-1514", category: "EGEA", img: "1842-1514-fiat-egea-ic-sol-stop-duylu-2015-2024.jpg", desc: "Fiat Egea 2015-2024 bagaj kapağı üzeri iç sol stop lambası. Duylu yapısıyla kolay montaj imkanı sunar. Sıfır kutusunda yedek parçadır.", seoTitle: "Fiat Egea İç Sol Stop Duylu Sıfır | Yedek Parça Jet", keywords: "fiat egea sol iç stop, egea bagaj stop lambası, sıfır egea stop, 2015-2024 egea, 1842-1514" },
+            { id: 1003, title: "Fiat Egea Ön Tampon (Sis ve Panjur Delikli) 2015-2020 - oem kodu: 1842-2000", category: "EGEA", img: "1842-2000-fiat-egea-on-tampon-sis-panjur-delikli-ceki-demiri-kapakli-2015-2020.jpg", desc: "Fiat Egea 2015-2020 arası modeller için sis farı ve panjur delikli ön tampon. Çeki demiri kapağı üzerindedir. Sıfır ve boyaya hazır üründür.", seoTitle: "Fiat Egea Ön Tampon Sis Delikli Sıfır | Yedek Parça Jet", keywords: "fiat egea ön tampon, egea sis delikli tampon, sıfır egea tampon, 2015-2020 egea ön tampon, 1842-2000" },
+            { id: 1004, title: "Fiat Egea Ön Tampon Takviyesiz (Sis ve Panjur Delikli) 2015-2020 - oem kodu: 1842-2001", category: "EGEA", img: "1842-2001-fiat-egea-on-tampon-takviyesiz-sis-panjur-delikli-ceki-demiri-kapakli-2015-2020.jpg", desc: "Fiat Egea 2015-2020 modelleriyle uyumlu takviyesiz ön tampon gövdesi. Sis ve panjur yuvaları açıktır, çeki demiri kapaklıdır. Sıfır kaporta malzemesidir.", seoTitle: "Fiat Egea Ön Tampon Takviyesiz Sıfır | Yedek Parça Jet", keywords: "fiat egea takviyesiz tampon, egea ön tampon, sıfır egea kaporta, egea tampon kapağı, 1842-2001" },
+            { id: 1005, title: "Fiat Egea İç Sağ Stop Duylu 2015-2024 - oem kodu: 1842-1513", category: "EGEA", img: "1842-1513-fiat-egea-ic-sag-stop-duylu-2015-2024.jpg", desc: "Fiat Egea 2015-2024 modelleriyle uyumlu iç sağ stop lambası. Duylu yapısıyla montaja hazırdır. Sıfır aydınlatma malzemesidir.", seoTitle: "Fiat Egea İç Sağ Stop Duylu Sıfır | Yedek Parça Jet", keywords: "fiat egea sağ stop, egea iç stop lambası, egea stop duylu, 1842-1513, sıfır egea aydınlatma" },
+            { id: 1006, title: "Fiat Egea Sağ Ön Çamurluk Delikli 2015-2024 - oem kodu: 1842-2101", category: "EGEA", img: "1842-2101-fiat-egea-sag-on-camurluk-delikli-2015-2024.jpg", desc: "Fiat Egea 2015-2024 modelleriyle uyumlu sağ ön çamurluk. Sinyal yuvası deliklidir. Sıfır kaporta malzemesidir.", seoTitle: "Fiat Egea Sağ Ön Çamurluk Delikli Sıfır | Yedek Parça Jet", keywords: "fiat egea sağ çamurluk, egea delikli çamurluk, sıfır egea kaporta, 1842-2101, egea sağ ön çamurluk" },
+            { id: 1007, title: "Fiat Egea Cross Ön Panjur Siyah - oem kodu: 1847-2340", category: "EGEA", img: "fiat-egea-cross-on-panjur-siyah-1847-2340.jpg", desc: "Fiat Egea Cross modelleriyle uyumlu siyah renkli ön panjur. Sıfır dış trim ve kaporta malzemesidir.", seoTitle: "Fiat Egea Cross Ön Panjur Siyah Sıfır | Yedek Parça Jet", keywords: "fiat egea cross panjur, egea cross siyah panjur, egea ön panjur, 1847-2340, sıfır egea parçaları" },
+            { id: 1008, title: "Fiat Egea Kaput - oem kodu: 1842-1300", category: "EGEA", img: "fiat-egea-kaput-1842-1300.jpg", desc: "Fiat Egea serisi ile uyumlu motor kaputu. Montaja hazır sıfır kaporta malzemesidir.", seoTitle: "Fiat Egea Motor Kaputu Sıfır | Yedek Parça Jet", keywords: "fiat egea kaput, egea motor kaputu, sıfır egea kaporta, egea ön kaput, 1842-1300" },
+            { id: 1009, title: "Fiat Egea Kaput Menteşesi Sağ Sol - oem kodu: 1842-2355 / 1842-2356", category: "EGEA", img: "fiat-egea-kaput-mentesesi-sag-sol-1842-2355-1842-2356.jpg", desc: "Fiat Egea modelleriyle uyumlu sağ ve sol kaput menteşesi takımı. Sıfır bağlantı malzemesidir.", seoTitle: "Fiat Egea Kaput Menteşesi Sağ Sol Sıfır | Yedek Parça Jet", keywords: "fiat egea kaput menteşesi, egea menteşe sağ sol, egea kaput bağlantısı, 1842-2355, 1842-2356" },
+            { id: 1010, title: "Fiat Egea Ön Panjur Petekleri Siyah - oem kodu: 1842-2345", category: "EGEA", img: "fiat-egea-on-panjur-petekleri-siyah-1842-2345.jpg", desc: "Fiat Egea ön panjur için siyah renkli petek ızgara kısmı. Sıfır dış donanım malzemesidir.", seoTitle: "Fiat Egea Ön Panjur Petekleri Siyah Sıfır | Yedek Parça Jet", keywords: "fiat egea panjur peteği, egea siyah panjur ızgarası, egea ön ızgara, 1842-2345" },
+            { id: 1011, title: "Fiat Egea Sağ Arka Kapı Sacı - oem kodu: 1842-2811", category: "EGEA", img: "fiat-egea-sag-arka-kapi-saci-1842-2811.jpg", desc: "Fiat Egea modelleriyle uyumlu sağ arka kapı sacı. Sıfır kaporta malzemesidir.", seoTitle: "Fiat Egea Sağ Arka Kapı Sacı Sıfır | Yedek Parça Jet", keywords: "fiat egea sağ arka kapı sacı, egea kapı sacı, sıfır egea kaporta, 1842-2811" },
+            { id: 1012, title: "Fiat Egea Sağ Far Elektrikli Motorlu Siyah Nikelajlı - oem kodu: 1842-1001A", category: "EGEA", img: "fiat-egea-sag-far-elektrikli-motorlu-siyah-nikelajli-1842-1001a.jpg", desc: "Fiat Egea uyumlu sağ far donanımı. Elektrikli, motorlu yapıda olup siyah nikelaj detaylarına sahiptir. Sıfır aydınlatma malzemesidir.", seoTitle: "Fiat Egea Sağ Far Elektrikli Nikelajlı Sıfır | Yedek Parça Jet", keywords: "fiat egea sağ far, egea elektrikli far, egea motorlu far siyah nikelajlı, 1842-1001A" },
+            { id: 1013, title: "Fiat Egea Sağ Ön Çamurluk Sinyal ve Dodik Delikli - oem kodu: 1847-2101", category: "EGEA", img: "fiat-egea-sag-on-camurluk-sinyal-ve-dodik-delikli-1847-2101.jpg", desc: "Fiat Egea serisi ile uyumlu sağ ön çamurluk. Sinyal lambası ve dodik bağlantıları için delikleri mevcuttur. Sıfır kaporta malzemesidir.", seoTitle: "Fiat Egea Sağ Ön Çamurluk Dodik Delikli Sıfır | Yedek Parça Jet", keywords: "fiat egea sağ çamurluk sinyal delikli, egea dodik delikli çamurluk, 1847-2101" },
+            { id: 1014, title: "Fiat Egea Sağ Ön Kapı Sacı - oem kodu: 1842-2211", category: "EGEA", img: "fiat-egea-sag-on-kapi-saci-oem-kodu-1842-2211.jpg", desc: "Fiat Egea modelleriyle uyumlu sağ ön kapı sacı. Montaja hazır sıfır kaporta malzemesidir.", seoTitle: "Fiat Egea Sağ Ön Kapı Sacı Sıfır | Yedek Parça Jet", keywords: "fiat egea sağ ön kapı sacı, egea kapı sacı, sıfır egea kaporta yedek parça, 1842-2211" },
+            { id: 1015, title: "Fiat Egea Sol Arka Kapı Sacı - oem kodu: 1842-2812", category: "EGEA", img: "fiat-egea-sol-arka-kapi-saci-1842-2812.jpg", desc: "Fiat Egea modelleriyle uyumlu sol arka kapı sacı. Sıfır kaporta malzemesidir.", seoTitle: "Fiat Egea Sol Arka Kapı Sacı Sıfır | Yedek Parça Jet", keywords: "fiat egea sol arka kapı sacı, egea sol kapı sacı, egea kaporta, 1842-2812" },
+            { id: 1016, title: "Fiat Egea Sol Ayna Elektrikli Isıtmalı - oem kodu: 1842-2994", category: "EGEA", img: "fiat-egea-sol-ayna-elektrikli-isitmali-1842-2994.jpg", desc: "Fiat Egea serisi ile uyumlu sol dikiz aynası. Elektrik ayarlı ve ısıtma özelliklidir. Sıfır yedek parçadır.", seoTitle: "Fiat Egea Sol Ayna Elektrikli Isıtmalı Sıfır | Yedek Parça Jet", keywords: "fiat egea sol ayna, egea elektrikli ayna, egea ısıtmalı sol ayna, 1842-2994" },
+            { id: 1017, title: "Fiat Egea Sol Far Elektrikli Motorlu Siyah Nikelajlı - oem kodu: 1842-1002A", category: "EGEA", img: "fiat-egea-sol-far-elektrikli-motorlu-siyah-nikelajli-1842-1002a.jpg", desc: "Fiat Egea uyumlu sol far donanımı. Elektrik motorlu ve siyah nikelaj detaylıdır. Sıfır aydınlatma malzemesidir.", seoTitle: "Fiat Egea Sol Far Elektrikli Nikelajlı Sıfır | Yedek Parça Jet", keywords: "fiat egea sol far, egea motorlu far, egea siyah nikelajlı far sol, 1842-1002A" },
+            { id: 1018, title: "Fiat Egea Sol Ön Çamurluk Delikli 2015-2024 - oem kodu: 1842-2102", category: "EGEA", img: "fiat-egea-sol-on-camurluk-delikli-2015-2024-oem-kodu-1842-2102.jpg", desc: "Fiat Egea 2015-2024 modelleriyle uyumlu sol ön çamurluk. Sinyal yuvası deliklidir. Sıfır kaporta malzemesidir.", seoTitle: "Fiat Egea Sol Ön Çamurluk Delikli Sıfır | Yedek Parça Jet", keywords: "fiat egea sol çamurluk, egea delikli çamurluk sol, sıfır egea kaporta, 1842-2102" },
+            { id: 1019, title: "Fiat Egea Sol Ön Kapı Sacı - oem kodu: 1842-2212", category: "EGEA", img: "fiat-egea-sol-on-kapi-saci-oem-kodu-1842-2212.jpg", desc: "Fiat Egea modelleriyle uyumlu sol ön kapı sacı. Montaja hazır sıfır kaporta malzemesidir.", seoTitle: "Fiat Egea Sol Ön Kapı Sacı Sıfır | Yedek Parça Jet", keywords: "fiat egea sol ön kapı sacı, egea sol kapı sacı, sıfır egea kaporta, 1842-2212" }
         ];
 
-        // --- 3. SİSTEM İŞLEYİŞİ ---
         const menuContainer = document.getElementById('menu-container');
         const grid = document.getElementById('product-grid');
         const titleArea = document.getElementById('category-title');
         const sidebar = document.getElementById('main-sidebar');
 
-        // Mobil Menü Aç/Kapat
         function toggleSidebar() {
             sidebar.classList.toggle('open');
         }
 
-        // Yan Menüyü Veriden Çekip Oluşturur
         function buildMenu() {
             for (const [brand, models] of Object.entries(menuData)) {
                 const btnId = 'btn-' + brand.replace(/\s+/g, '-');
@@ -504,7 +315,6 @@
             }
         }
 
-        // Akordeon Tıklama Mantığı
         function togglePanel(panelId, btnId) {
             document.querySelectorAll('.panel').forEach(p => { if(p.id !== panelId) p.style.display = 'none'; });
             document.querySelectorAll('.accordion-btn').forEach(b => { if(b.id !== btnId) b.classList.remove('active'); });
@@ -521,7 +331,6 @@
             }
         }
 
-        // Ekrana Ürün Basma
         function displayProducts(items) {
             grid.innerHTML = "";
             if(items.length === 0) {
@@ -547,7 +356,6 @@
             });
         }
 
-        // Arama Motoru
         function searchProduct() {
             if(document.getElementById('product-detail-view').style.display === 'block') closeProduct();
             const q = document.getElementById('searchInput').value.toLowerCase();
@@ -557,21 +365,18 @@
             if(window.innerWidth < 900) sidebar.classList.remove('open');
         }
 
-        // Kategori Filtresi
         function filterByModel(model) {
             if(document.getElementById('product-detail-view').style.display === 'block') closeProduct();
             titleArea.innerText = model + " Yedek Parçaları";
             const filtered = products.filter(p => p.category === model);
             displayProducts(filtered);
             
-            // Mobilde filtre seçilince menüyü kapat ve ürünlere in
             if(window.innerWidth < 900) {
                 sidebar.classList.remove('open');
                 document.querySelector('.products-section').scrollIntoView({behavior:'smooth'});
             }
         }
 
-        // Ana Sayfa Vitrin (İlk 20 Ürün)
         function showVitrin() {
             if(document.getElementById('product-detail-view').style.display === 'block') closeProduct();
             titleArea.innerText = "Vitrin Ürünleri";
@@ -581,7 +386,6 @@
             if(window.innerWidth < 900) sidebar.classList.remove('open');
         }
 
-        // Ürün Detayı ve SEO
         function openProduct(id) {
             const p = products.find(x => x.id === id);
             if(!p) return;
@@ -590,13 +394,11 @@
             document.getElementById('product-detail-view').style.display = 'block';
             window.scrollTo({top: 0, behavior: 'smooth'});
 
-            // Veri Yerleştirme
             document.getElementById('d-cat').innerText = p.category + " Yedek Parça";
             document.getElementById('d-title').innerText = p.title;
             document.getElementById('d-desc').innerText = p.desc;
             document.getElementById('d-main-img').src = p.img;
             
-            // SEO Ayarlaması
             if(p.seoTitle) document.title = p.seoTitle;
             if(p.keywords) {
                 let metaKw = document.querySelector('meta[name="keywords"]');
@@ -608,7 +410,6 @@
                 metaKw.content = p.keywords;
             }
 
-            // WhatsApp Entegrasyonu
             const waMsg = `Merhaba, "${p.title}" (Ürün ID: ${p.id}) parçası için fiyat ve stok bilgisi alabilir miyim?`;
             document.getElementById('d-whatsapp').href = `https://wa.me/908508407728?text=${encodeURIComponent(waMsg)}`;
         }
@@ -620,10 +421,38 @@
             window.scrollTo({top: 0, behavior: 'smooth'});
         }
 
-        // Başlangıç Kurulumu
+        function generateSEOData() {
+            const schema = {
+                "@context": "https://schema.org",
+                "@type": "ItemList",
+                "itemListElement": products.map((p, index) => ({
+                    "@type": "ListItem",
+                    "position": index + 1,
+                    "item": {
+                        "@type": "Product",
+                        "name": p.title,
+                        "description": p.desc,
+                        "image": window.location.origin + "/" + p.img,
+                        "sku": p.id.toString(),
+                        "category": p.category,
+                        "offers": {
+                            "@type": "Offer",
+                            "availability": "https://schema.org/InStock"
+                        }
+                    }
+                }))
+            };
+            
+            const script = document.createElement('script');
+            script.type = 'application/ld+json';
+            script.text = JSON.stringify(schema);
+            document.head.appendChild(script);
+        }
+
         window.onload = function() {
             buildMenu();
             showVitrin();
+            generateSEOData();
         };
     </script>
 </body>
